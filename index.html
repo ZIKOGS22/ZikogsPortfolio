@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Ziko Gusman Susilo - AI Systems Integrator</title>
+    <!-- Tailwind CSS v4 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome untuk Ikon Modern -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .modal-active { overflow: hidden; }
@@ -15,7 +17,7 @@
             left: 50%;
             transform: translate(-50%, -50%) rotate(-30deg);
             font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.15);
             pointer-events: none;
             white-space: nowrap;
             font-weight: bold;
@@ -32,6 +34,7 @@
 </head>
 <body class="bg-[#0F0F0F] text-gray-200 font-sans antialiased">
 
+    <!-- LANGUAGE SWITCHER FLOATING BUTTON -->
     <div class="fixed top-4 right-4 z-50 bg-[#141416] border border-gray-800 rounded-lg p-1 flex gap-1 shadow-xl">
         <button onclick="switchLang('id')" id="btn-lang-id" class="px-3 py-1.5 text-xs font-bold rounded cursor-pointer transition-all bg-red-600 text-white">
             🇮🇩 ID
@@ -41,13 +44,18 @@
         </button>
     </div>
 
+    <!-- 1. HERO SECTION: PROFIL & PERSONAL BRANDING -->
     <section class="max-w-6xl mx-auto px-6 pt-16 pb-12">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             
             <div class="md:col-span-4 flex justify-center">
                 <div class="relative group">
                     <div class="absolute -inset-1 bg-gradient-to-r from-red-600 to-red-900 rounded-xl blur opacity-40 group-hover:opacity-100 transition duration-500"></div>
-                    <img src="assets/images/profile.jpg" alt="Ziko Gusman Susilo" class="relative rounded-xl w-64 h-80 object-cover border-2 border-red-600/50 grayscale hover:grayscale-0 transition duration-500">
+                    <div class="relative rounded-xl w-64 h-80 border-2 border-red-600/50 bg-[#141416] flex flex-col items-center justify-center text-center p-4">
+                        <i class="fas fa-user-tie text-5xl text-red-500 mb-3"></i>
+                        <p class="text-white font-bold text-lg">Ziko Gusman S.</p>
+                        <p class="text-xs text-gray-500 mt-1">AI Systems Integrator</p>
+                    </div>
                 </div>
             </div>
             
@@ -59,7 +67,7 @@
                     </h1>
                 </div>
                 <p class="text-lg text-gray-400 leading-relaxed" 
-                   data-id="Dengan pengalaman lebih dari 11 tahun di industri skala besar (Ganesha Operation) dalam mengelola data datak, HRIS, hingga manajemen aset eksekutif, saya berfokus pada <strong>optimalisasi dan perancangan sistem berbasis AI</strong>. Saya tidak sekadar membuat website, melainkan memaksimalkan kemampuan AI untuk membangun arsitektur sistem yang memangkas birokrasi teknis—mengubah data operasional yang rumit menjadi dasbor interaktif yang mudah dikontrol oleh level manajemen."
+                   data-id="Dengan pengalaman lebih dari 11 tahun di industri skala besar (Ganesha Operation) dalam mengelola data analitik, HRIS, hingga manajemen aset eksekutif, saya berfokus pada <strong>optimalisasi dan perancangan sistem berbasis AI</strong>. Saya tidak sekadar membuat website, melainkan memaksimalkan kemampuan AI untuk membangun arsitektur sistem yang memangkas birokrasi teknis—mengubah data operasional yang rumit menjadi dasbor interaktif yang mudah dikontrol oleh level manajemen."
                    data-en="With over 11 years of dedicated experience in a large-scale industry (Ganesha Operation) spanning data analytics, HRIS, and executive asset management, I focus on <strong>optimizing and architecting AI-powered systems</strong>. I do not just build websites; instead, I maximize AI capabilities to design architectures that eliminate technical bureaucracy—transforming complex operational data into intuitive, interactive dashboards tailored for executive decision-making.">
                     Dengan pengalaman lebih dari 11 tahun di industri skala besar (Ganesha Operation) dalam mengelola data analitik, HRIS, hingga manajemen aset eksekutif, saya berfokus pada <strong>optimalisasi dan perancangan sistem berbasis AI</strong>. Saya tidak sekadar membuat website, melainkan memaksimalkan kemampuan AI untuk membangun arsitektur sistem yang memangkas birokrasi teknis—mengubah data operasional yang rumit menjadi dasbor interaktif yang mudah dikontrol oleh level manajemen.
                 </p>
@@ -79,10 +87,12 @@
         </div>
     </section>
 
+    <!-- GRADIENT DIVIDER -->
     <div class="max-w-6xl mx-auto px-6 my-4">
         <div class="h-[1px] bg-gradient-to-r from-transparent via-red-600 to-transparent w-full"></div>
     </div>
 
+    <!-- 2. SECTION VALUE: METODOLOGI KERJA -->
     <section class="max-w-6xl mx-auto px-6 py-8">
         <div class="text-center max-w-3xl mx-auto mb-12">
             <h2 class="text-2xl font-bold text-white mb-4 inline-block border-b-2 border-red-600 pb-2" data-id="Pendekatan Integrasi Sistem" data-en="System Integration Approach">Pendekatan Integrasi Sistem</h2>
@@ -103,10 +113,12 @@
         </div>
     </section>
 
+    <!-- GRADIENT DIVIDER -->
     <div class="max-w-6xl mx-auto px-6 my-4">
         <div class="h-[1px] bg-gradient-to-r from-transparent via-red-600 to-transparent w-full"></div>
     </div>
 
+    <!-- 3. DEMO 1: LIVE DEMO EWS KONTROLING CABANG -->
     <section id="demo-live" class="max-w-6xl mx-auto px-6 py-8 space-y-6">
         <div class="border-l-4 border-red-600 pl-3">
             <h2 class="text-2xl font-bold text-white" data-id="Demo 01: EWS Kontroling Cabang" data-en="Demo 01: Branch Control EWS">Demo 01: EWS Kontroling Cabang</h2>
@@ -173,10 +185,12 @@
         </div>
     </section>
 
+    <!-- GRADIENT DIVIDER -->
     <div class="max-w-6xl mx-auto px-6 my-4">
         <div class="h-[1px] bg-gradient-to-r from-transparent via-red-600 to-transparent w-full"></div>
     </div>
 
+    <!-- 4. DEMO 2: CUSTOM MERCHANDISE CANVAS ENGINE (CORETANKECIL) -->
     <section id="demo-canvas" class="max-w-6xl mx-auto px-6 py-8 space-y-6">
         <div class="flex justify-between items-start border-l-4 border-red-600 pl-3">
             <div>
@@ -189,15 +203,18 @@
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <!-- CANVAS VISUAL PREVIEW (LEFT) -->
             <div class="lg:col-span-7 bg-[#141416] p-6 rounded-2xl border border-gray-800 flex flex-col items-center">
                 <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4" data-id="Pratinjau Kanvas Interaktif" data-en="Interactive Canvas Preview">Pratinjau Kanvas Interaktif</h3>
                 
-                <div id="canvas-container" class="w-full max-w-sm aspect-square bg-[#0F0F0F] rounded-xl flex items-center justify-center relative border border-gray-800">
-                    <img id="base-mockup" src="kaos-polos.png" alt="Mockup Base" class="w-full h-full object-contain pointer-events-none transition-all duration-300" style="mix-blend-mode: multiply !important; background-color: #212121;">
+                <div id="canvas-container" class="w-full max-w-sm aspect-square bg-[#212121] rounded-xl flex items-center justify-center relative border border-gray-800">
+                    <!-- FIX: Ganti ke URL T-Shirt Transparan Global yang Valid -->
+                    <img id="base-mockup" src="https://raw.githubusercontent.com/orionicon/Orion-Icon-Library/master/svg/clothes/t-shirt.svg" alt="Mockup Base" class="w-3/4 h-3/4 object-contain pointer-events-none transition-all duration-300 invert opacity-40">
                     <img id="movable-img" src="" alt="" class="hidden max-w-xs object-contain opacity-90">
                     <div class="watermark" data-id="PREVIEW CORETANKECIL" data-en="CORETANKECIL PREVIEW">PREVIEW CORETANKECIL</div>
                 </div>
 
+                <!-- Kontrol Manual Ukuran Gambar dan Posisi -->
                 <div class="w-full max-w-sm mt-6 space-y-4">
                     <div>
                         <label class="block text-xs font-semibold text-gray-400 mb-1">
@@ -232,6 +249,7 @@
                 </div>
             </div>
 
+            <!-- CUSTOMER INPUT FORM PANEL (RIGHT) -->
             <div class="lg:col-span-5 space-y-4">
                 <div class="space-y-1">
                     <h1 class="text-3xl font-black tracking-tight text-white">coretankecil</h1>
@@ -314,6 +332,7 @@
                         <p id="voucher-status" class="text-xs mt-1 hidden"></p>
                     </div>
 
+                    <!-- RINCIAN HARGA NOTA -->
                     <div class="p-4 bg-[#0F0F0F] rounded-xl border border-gray-800 space-y-1">
                         <div class="flex justify-between items-center text-xs">
                             <span class="text-gray-500" data-id="Subtotal Produk:" data-en="Product Subtotal:">Subtotal Produk:</span>
@@ -338,6 +357,7 @@
         </div>
     </section>
 
+    <!-- SLIDE-OVER UPDATE STATUS PANEL (DEMO 1 MODAL) -->
     <div id="updateModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 z-50 flex justify-end">
         <div class="bg-[#141416] border-l border-gray-800 w-full max-w-lg h-full p-6 shadow-2xl overflow-y-auto transform translate-x-full transition-transform duration-300 flex flex-col justify-between" id="modalPanel">
             <div>
@@ -348,4 +368,650 @@
                 <form id="updateForm" class="space-y-4">
                     <input type="hidden" id="modalIdAjuan">
                     <div>
-                        <label class="block text-xs font-bold text
+                        <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1" data-id="Tahap Progress Saat Ini" data-en="Current Progress Stage">Tahap Progress Saat Ini</label>
+                        <select id="modalStatusSelect" class="w-full border border-gray-800 p-2.5 rounded-lg text-sm bg-[#0F0F0F] text-white focus:ring-2 focus:ring-red-600"></select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1" data-id="📅 Tanggal Progres Terjadi" data-en="📅 Progress Date">📅 Tanggal Progres Terjadi</label>
+                        <input type="date" id="modalTglProgres" class="w-full border border-gray-800 p-2.5 rounded-lg text-sm bg-[#0F0F0F] text-white focus:ring-2 focus:ring-red-600">
+                    </div>
+                    <div id="fileUploadGroup" class="hidden p-4 bg-red-950/20 border border-red-900/50 rounded-lg space-y-2">
+                        <label id="fileLabel" class="block text-xs font-bold text-red-400 uppercase tracking-wider">📁 Dokumen Lampiran</label>
+                        <input type="file" id="modalFile" class="text-xs text-gray-400 block w-full cursor-pointer">
+                        <p id="fileHelpText" class="text-[11px] text-gray-500 mt-1"></p>
+                    </div>
+                    <div>
+                        <label class="text-xs font-bold text-gray-400 block mb-1 uppercase" data-id="📝 Catatan Tambahan / Hasil Diskusi" data-en="📝 Additional Notes / Discussion Results">📝 Catatan Tambahan / Hasil Diskusi</label>
+                        <textarea id="noteTambahan" rows="4" class="w-full border border-gray-800 bg-[#0F0F0F] text-white rounded-md p-2 text-xs focus:ring-2 focus:ring-red-600"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="border-t border-gray-800 pt-4 mt-6 flex gap-2">
+                <button onclick="submitUpdate()" id="btnSimpan" type="button" class="w-full bg-red-600 text-white text-sm font-semibold py-2.5 rounded-lg hover:bg-red-700 shadow-md cursor-pointer" data-id="Simpan Perubahan" data-en="Save Changes">Simpan Perubahan</button>
+                <button onclick="closeModal()" class="w-32 bg-[#0F0F0F] border border-gray-800 text-gray-400 text-sm font-semibold py-2.5 rounded-lg hover:bg-gray-800 transition cursor-pointer" data-id="Batal" data-en="Cancel">Batal</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- POP-UP MODAL PANDUAN UKURAN (SIZE CHART) -->
+    <div id="size-chart-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-[#141416] border border-gray-800 rounded-2xl max-w-md w-full p-5 shadow-2xl space-y-4 relative">
+            <div class="flex justify-between items-center border-b border-gray-800 pb-2">
+                <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                    <span>📏</span> <span data-id="Panduan Standar Ukuran T-Shirt" data-en="T-Shirt Apparel Size Chart">Panduan Standar Ukuran T-Shirt</span>
+                </h3>
+                <button type="button" onclick="tutupModal('size-chart-modal')" class="text-gray-400 hover:text-red-500 font-bold p-1">✕</button>
+            </div>
+            <div class="w-full overflow-hidden rounded-xl border border-gray-800 bg-[#0F0F0F] flex flex-col items-center justify-center p-4 text-center">
+                <!-- FIX: Ganti ke Gambar Size Chart Ilustrasi Publik agar langsung muncul -->
+                <i class="fas fa-ruler-combined text-4xl text-red-500 mb-2"></i>
+                <table class="w-full text-xs text-left border-collapse text-gray-400">
+                    <thead>
+                        <tr class="border-b border-gray-800 text-white">
+                            <th class="py-1">Size</th>
+                            <th class="py-1">Width (cm)</th>
+                            <th class="py-1">Length (cm)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-800/50"><td>S</td><td>47</td><td>67</td></tr>
+                        <tr class="border-b border-gray-800/50"><td>M</td><td>50</td><td>70</td></tr>
+                        <tr class="border-b border-gray-800/50"><td>L</td><td>53</td><td>73</td></tr>
+                        <tr class="border-b border-gray-800/50"><td>XL</td><td>56</td><td>75</td></tr>
+                        <tr><td>XXL</td><td>59</td><td>77</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <button type="button" onclick="tutupModal('size-chart-modal')" class="w-full py-2.5 bg-[#0F0F0F] border border-gray-800 hover:bg-gray-800 text-gray-400 font-semibold text-xs rounded-xl transition cursor-pointer" data-id="Tutup Panduan" data-en="Close Chart Panel">Tutup Panduan</button>
+        </div>
+    </div>
+
+    <!-- POP-UP LOGIN ADMIN -->
+    <div id="admin-login-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-[#141416] border border-gray-800 rounded-2xl max-w-xs w-full p-6 text-center shadow-2xl space-y-4">
+            <h3 class="text-sm font-bold text-white" data-id="🔐 Keamanan Gerbang Admin" data-en="🔐 Authenticate Admin Portal">🔐 Keamanan Gerbang Admin</h3>
+            <input type="password" id="admin-pass-input" class="w-full px-4 py-2 bg-[#0F0F0F] border border-gray-800 text-white rounded-xl text-center outline-none text-sm focus:border-red-600">
+            <div class="flex gap-2">
+                <button onclick="tutupModal('admin-login-modal')" class="flex-1 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-xl text-xs cursor-pointer" data-id="Batal" data-en="Cancel">Batal</button>
+                <button onclick="cekPasswordAdmin()" class="flex-1 py-2 bg-red-600 hover:bg-red-700 text-white text-xs font-bold rounded-xl cursor-pointer" data-id="Masuk" data-en="Verify">Masuk</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- POP-UP DASHBOARD UTAMA RAHASIA ADMIN -->
+    <div id="admin-dashboard-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-[#141416] border border-gray-800 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-6">
+            <div class="flex justify-between items-center">
+                <h3 class="text-md font-bold text-white uppercase tracking-wide">🛠️ Control Panel CoretanKecil</h3>
+                <button onclick="tutupModal('admin-dashboard-modal')" class="text-gray-400 hover:text-red-500 font-bold cursor-pointer">✕</button>
+            </div>
+            
+            <div class="space-y-3 p-4 bg-[#0F0F0F] rounded-xl border border-gray-800">
+                <h4 class="text-xs font-bold text-red-500 uppercase tracking-wide" data-id="1. Konfigurasi Harga Dasar" data-en="1. Configure Base Matrix Cost">1. Konfigurasi Harga Dasar</h4>
+                <div>
+                    <label class="text-[10px] text-gray-500 font-medium" data-id="Harga Lengan Pendek (Rp)" data-en="Short Sleeve Price (IDR)">Harga Lengan Pendek (Rp)</label>
+                    <input type="number" id="cfg-harga-pendek" class="w-full px-3 py-1.5 bg-[#141416] border border-gray-800 rounded-lg text-xs text-white outline-none">
+                </div>
+                <div>
+                    <label class="text-[10px] text-gray-500 font-medium" data-id="Harga Lengan 3/4 (Rp)" data-en="3/4 Sleeve Price (IDR)">Harga Lengan 3/4 (Rp)</label>
+                    <input type="number" id="cfg-harga-tiga-perempat" class="w-full px-3 py-1.5 bg-[#141416] border border-gray-800 rounded-lg text-xs text-white outline-none">
+                </div>
+                <div>
+                    <label class="text-[10px] text-gray-500 font-medium" data-id="Harga Lengan Panjang (Rp)" data-en="Long Sleeve Price (IDR)">Harga Lengan Panjang (Rp)</label>
+                    <input type="number" id="cfg-harga-panjang" class="w-full px-3 py-1.5 bg-[#141416] border border-gray-800 rounded-lg text-xs text-white outline-none">
+                </div>
+            </div>
+
+            <div class="space-y-3 p-4 bg-[#0F0F0F] rounded-xl border border-gray-800">
+                <h4 class="text-xs font-bold text-red-500 uppercase tracking-wide" data-id="2. Parameter Voucher Diskon" data-en="2. Discount Token Parameter">2. Parameter Voucher Diskon</h4>
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="text-[10px] text-gray-500 font-medium" data-id="Token Kode" data-en="Voucher Code">Token Kode</label>
+                        <input type="text" id="cfg-voucher-code" class="w-full px-3 py-1.5 bg-[#141416] border border-gray-800 rounded-lg text-xs text-white uppercase outline-none">
+                    </div>
+                    <div>
+                        <label class="text-[10px] text-gray-500 font-medium" data-id="Nominal Potong" data-en="Deduction (IDR)">Nominal Potong</label>
+                        <input type="number" id="cfg-voucher-disc" class="w-full px-3 py-1.5 bg-[#141416] border border-gray-800 rounded-lg text-xs text-white outline-none">
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="simpanPengaturanAdmin()" class="w-full py-2.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold rounded-xl shadow transition cursor-pointer" data-id="Simpan & Sinkronisasi Website" data-en="Commit Changes & Synchronize Cloud">
+                Simpan & Sinkronisasi Website
+            </button>
+        </div>
+    </div>
+
+    <!-- POP-UP NOTIFIKASI SUKSES ORDER -->
+    <div id="success-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-[#141416] border border-gray-800 rounded-2xl max-w-sm w-full p-6 text-center shadow-2xl space-y-4">
+            <div class="w-12 h-12 bg-green-950 text-green-500 border border-green-900 rounded-full flex items-center justify-center mx-auto text-xl font-bold">✓</div>
+            <h3 class="text-lg font-bold text-white" data-id="Pesanan Berhasil Dicatat!" data-en="Order Pipeline Logged!">Pesanan Berhasil Dicatat!</h3>
+            <p class="text-xs text-gray-400" data-id="Langkah terakhir, kirim berkas enkripsi ID Order serta Total Biaya ke gerbang WhatsApp Admin." data-en="Final step, dispatch the encrypted Order Pipeline ID and billing invoice structure into WhatsApp Admin API.">Langkah terakhir, kirim berkas enkripsi ID Order serta Total Biaya ke gerbang WhatsApp Admin.</p>
+            
+            <div class="bg-[#0F0F0F] border border-gray-800 p-3 rounded-xl text-left">
+                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-wider" data-id="Generated ID Pesanan:" data-en="Generated Order Hash ID:">Generated ID Pesanan:</p>
+                <p id="modal-order-id" class="text-base font-mono font-bold text-red-500">CK-XXXXXX</p>
+            </div>
+
+            <button id="btn-wa" class="w-full py-2.5 bg-green-600 hover:bg-green-700 text-white font-bold text-xs rounded-xl shadow transition flex items-center justify-center gap-2 cursor-pointer">
+                <i class="fab fa-whatsapp text-sm"></i><span data-id="Kirim Data Ke WhatsApp" data-en="Dispatch Data to WhatsApp Gateway">Kirim Data Ke WhatsApp</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC CORE ENGINE -->
+    <script>
+        const PASSWORD_RAHASIA_KAMU = "admincoretan123";
+        let masterData = [];
+        let currentFilter = 'ALL';
+        let currentLang = 'id';
+
+        const languagePack = {
+            id: {
+                searchPlaceholder: "Cari nama cabang, gedung, atau kota...",
+                overdue: "⚠️ Lewat {x} Hari",
+                critical: "🚨 H-{x} Hari",
+                safe: "H-{x} Hari",
+                emptyTable: "Tidak ada ajuan cabang ditemukan.",
+                syncText: "Menyinkronkan ke Spreadsheet...",
+                alertDate: "⚠️ Silakan isi Tanggal Progres terlebih dahulu!",
+                alertFile: "⚠️ Proteksi Sistem: Wajib melampirkan berkas Dokumen Draft Akta untuk tahap ini!",
+                alertSuccess: "🎉 Simulasi Berhasil! Data Berhasil Diperbarui di UI Dashboard.",
+                btnUpdate: "Update",
+                labelUploadGeneral: "📁 Berkas Lampiran Umum (KTP, NPWP, Berkas Pendukung)",
+                helpUploadGeneral: "Menerima semua jenis ekstensi file berkas. Maksimal ukuran file: 35MB.",
+                labelUploadPdf: "📁 Dokumen Resmi Draft Akta / Sewa",
+                helpUploadPdf: "Proteksi Sistem: Hanya menerima ekstensi .pdf / Gambar. Maksimal: 5MB.",
+                vchTrue: "🎉 Kode Promo Berhasil! Potongan Rp ",
+                vchFalse: "❌ Kode promo salah atau sudah kedaluwarsa.",
+                admWrong: "Password Salah! Akses Ditolak.",
+                admSaved: "Sistem Manajemen Parameter Berhasil Di-update!",
+                inputArtAlert: "Harap upload file preview coretan terlebih dahulu!"
+            },
+            en: {
+                searchPlaceholder: "Search branch name, building, or city...",
+                overdue: "⚠️ Overdue by {x} Days",
+                critical: "🚨 Critical: {x} Days Left",
+                safe: "{x} Days Left",
+                emptyTable: "No branch submissions found.",
+                syncText: "Syncing to Database Pipeline...",
+                alertDate: "⚠️ Please fill in the Progress Date first!",
+                alertFile: "⚠️ System Protection: Attaching the Draft Deed Document is required for this stage!",
+                alertSuccess: "🎉 Simulation Successful! Data successfully updated in the Dashboard UI.",
+                btnUpdate: "Update",
+                labelUploadGeneral: "📁 General Attachment Files (ID Card, Tax ID, Supporting Docs)",
+                helpUploadGeneral: "Accepts all file extensions. Maximum file size: 35MB.",
+                labelUploadPdf: "📁 Official Draft Deed / Lease Document",
+                helpUploadPdf: "System Protection: Only accepts .pdf / Image extensions. Max size: 5MB.",
+                vchTrue: "🎉 Promo Code Verified! Deduction of Rp ",
+                vchFalse: "❌ Invalid code token or token has expired.",
+                admWrong: "Incorrect Admin Credentials! Access Denied.",
+                admSaved: "System Management Parameter Successfully Synchronized!",
+                inputArtAlert: "Please upload the artwork file for canvas mapping view first!"
+            }
+        };
+
+        // DOM CORE LOAD INIT
+        window.addEventListener('DOMContentLoaded', () => {
+            fetchDatabaseSimulation();
+            // FIX: Urutan pemanggilan dibetulkan agar tidak error saat inisiasi bahasa pertama
+            switchLang('id');
+        });
+
+        // GLOBAL SWITCH LANGUAGE MACHINE
+        function switchLang(lang) {
+            currentLang = lang;
+            
+            const btnId = document.getElementById('btn-lang-id');
+            const btnEn = document.getElementById('btn-lang-en');
+            
+            if(btnId && btnEn) {
+                if(lang === 'id') {
+                    btnId.className = "px-3 py-1.5 text-xs font-bold rounded cursor-pointer transition-all bg-red-600 text-white";
+                    btnEn.className = "px-3 py-1.5 text-xs font-bold rounded cursor-pointer transition-all text-gray-400 hover:text-white";
+                } else {
+                    btnEn.className = "px-3 py-1.5 text-xs font-bold rounded cursor-pointer transition-all bg-red-600 text-white";
+                    btnId.className = "px-3 py-1.5 text-xs font-bold rounded cursor-pointer transition-all text-gray-400 hover:text-white";
+                }
+            }
+
+            document.querySelectorAll('[data-id]').forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if(text) el.innerHTML = text;
+            });
+
+            const searchBar = document.getElementById('searchBar');
+            if(searchBar) searchBar.placeholder = languagePack[lang].searchPlaceholder;
+            
+            const namaInput = document.getElementById('nama');
+            const alamatInput = document.getElementById('alamat');
+            const waInput = document.getElementById('whatsapp');
+            const vchInput = document.getElementById('voucher-input');
+            const cstInput = document.getElementById('custom-warna-input');
+
+            if(lang === 'id') {
+                if(namaInput) namaInput.placeholder = "Masukkan nama lengkap";
+                if(alamatInput) alamatInput.placeholder = "Nama jalan, nomor rumah, kecamatan, kota";
+                if(waInput) waInput.placeholder = "Contoh: 08123456789";
+                if(vchInput) vchInput.placeholder = "Masukkan kode promo";
+                if(cstInput) cstInput.placeholder = "Misal: Sage Green, Lilac, Merah";
+            } else {
+                if(namaInput) namaInput.placeholder = "Enter full identity name";
+                if(alamatInput) alamatInput.placeholder = "Street name, home number, city, zip code";
+                if(waInput) waInput.placeholder = "Example: 628123456789";
+                if(vchInput) vchInput.placeholder = "Enter promo token code";
+                if(cstInput) cstInput.placeholder = "E.g., Sage Green, Lilac, Crimson Red";
+            }
+
+            renderTable();
+            updateCanvasBase();
+        }
+
+        // ==========================================
+        // SCRIPT LOGIC SIMULASI DASBOR EWS (DEMO 1)
+        // ==========================================
+        async function fetchDatabaseSimulation() {
+            masterData = [
+                { "ID Ajuan": "REQ-2027-001", "CABANG2": "Cabang Bandung Merdeka", "NAMA GEDUNG": "Wisma Asia Lt. 3", "Kota": "Bandung", "MASA AKHIR SEWA": "2026-08-15", "TAHAP_ID": "TAHAP 01 - BELUM LENGKAP", "TAHAP_EN": "STAGE 01 - INCOMPLETE" },
+                { "ID Ajuan": "REQ-2027-002", "CABANG2": "Cabang Jakarta Sudirman", "NAMA GEDUNG": "Menara Sudirman Kav 21", "Kota": "Jakarta", "MASA AKHIR SEWA": "2026-05-01", "TAHAP_ID": "TAHAP 00 - BELUM PENGAJUAN", "TAHAP_EN": "STAGE 00 - NOT YET SUBMITTED" },
+                { "ID Ajuan": "REQ-2027-003", "CABANG2": "Cabang Surabaya Tengah", "NAMA GEDUNG": "Gedung Graha Pena H-4", "Kota": "Surabaya", "MASA AKHIR SEWA": "2027-12-31", "TAHAP_ID": "TAHAP 11A - TUNTAS", "TAHAP_EN": "STAGE 11A - COMPLETED" }
+            ];
+            calculateStats();
+            renderTable();
+        }
+
+        function calculateStats() {
+            const tot = document.getElementById('statTotal');
+            const blm = document.getElementById('statBelum');
+            const prs = document.getElementById('statProses');
+            if(!tot || !blm || !prs) return;
+
+            tot.innerText = masterData.length;
+            const belum = masterData.filter(d => d.TAHAP_ID && d.TAHAP_ID.includes("TAHAP 00")).length;
+            blm.innerText = belum;
+            prs.innerText = masterData.length - belum;
+        }
+
+        function hitungDeadline(tglSewaStr) {
+            if (!tglSewaStr || tglSewaStr === '-') return { teks: '-', kelas: 'text-gray-500' };
+            const tglSewa = new Date(tglSewaStr);
+            const hariIni = new Date();
+            tglSewa.setHours(0,0,0,0); hariIni.setHours(0,0,0,0);
+            const selisihWaktu = tglSewa.getTime() - hariIni.getTime();
+            const selisihHari = Math.ceil(selisihWaktu / (1000 * 60 * 60 * 24));
+            const pack = languagePack[currentLang];
+            
+            if (selisihHari < 0) {
+                return { teks: pack.overdue.replace("{x}", Math.abs(selisihHari)), kelas: 'text-red-500 font-bold bg-red-950/40 px-2 py-0.5 rounded border border-red-900/50' };
+            } else if (selisihHari <= 90) {
+                return { teks: pack.critical.replace("{x}", selisihHari), kelas: 'text-amber-500 font-bold bg-amber-950/40 px-2 py-0.5 rounded border border-amber-900/50' };
+            } else {
+                return { teks: pack.safe.replace("{x}", selisihHari), kelas: 'text-green-500 font-medium bg-green-950/40 px-2 py-0.5 rounded border border-green-900/50' };
+            }
+        }
+
+        function renderTable() {
+            const tbody = document.getElementById('tableBody');
+            if(!tbody) return;
+            const sb = document.getElementById('searchBar');
+            const searchTxt = sb ? sb.value.toLowerCase() : "";
+            tbody.innerHTML = '';
+
+            let filtered = masterData.filter(item => {
+                const matchesSearch = (item.CABANG2 && item.CABANG2.toLowerCase().includes(searchTxt)) || 
+                                      (item["NAMA GEDUNG"] && item["NAMA GEDUNG"].toLowerCase().includes(searchTxt)) ||
+                                      (item.Kota && item.Kota.toLowerCase().includes(searchTxt));
+                if (currentFilter === 'TAHAP 00') return matchesSearch && item.TAHAP_ID && item.TAHAP_ID.includes("TAHAP 00");
+                else if (currentFilter === 'PROSES') return matchesSearch && item.TAHAP_ID && !item.TAHAP_ID.includes("TAHAP 00");
+                return matchesSearch;
+            });
+
+            if(filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="8" class="p-8 text-center text-gray-500">${languagePack[currentLang].emptyTable}</td></tr>`;
+                return;
+            }
+
+            filtered.forEach(item => {
+                const isBelum = item.TAHAP_ID && item.TAHAP_ID.includes("TAHAP 00");
+                const tahapTeks = currentLang === 'id' ? item.TAHAP_ID : item.TAHAP_EN;
+                const statusBadge = isBelum 
+                    ? `<span class="bg-amber-950/50 text-amber-500 text-xs px-2.5 py-1 rounded-md border border-amber-900/30 font-semibold">${tahapTeks}</span>`
+                    : `<span class="bg-red-950/50 text-red-400 text-xs px-2.5 py-1 rounded-md border border-red-900/30 font-semibold">${tahapTeks}</span>`;
+
+                const ews = hitungDeadline(item["MASA AKHIR SEWA"]);
+
+                tbody.innerHTML += `
+                    <tr class="hover:bg-gray-800/30 transition border-b border-gray-800">
+                        <td class="p-4 font-mono text-xs text-gray-500">${item["ID Ajuan"]}</td>
+                        <td class="p-4 font-bold text-white">${item.CABANG2}</td>
+                        <td class="p-4 text-gray-400">${item["NAMA GEDUNG"]}</td>
+                        <td class="p-4 text-gray-400">${item.Kota}</td>
+                        <td class="p-4 font-medium">${item["MASA AKHIR SEWA"]}</td>
+                        <td class="p-4 text-xs">${ews.teks !== '-' ? `<span class="${ews.kelas}">${ews.teks}</span>` : '-'}</td>
+                        <td class="p-4">${statusBadge}</td>
+                        <td class="p-4 text-center">
+                            <button onclick="openModal('${item["ID Ajuan"]}')" class="bg-[#0F0F0F] border border-gray-800 text-gray-300 hover:border-red-600 px-3 py-1.5 rounded-md text-xs font-bold cursor-pointer transition-all">${languagePack[currentLang].btnUpdate}</button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        const sbElement = document.getElementById('searchBar');
+        if(sbElement) sbElement.addEventListener('input', renderTable);
+
+        function filterData(type) {
+            currentFilter = type;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.className = "filter-btn px-4 py-2 text-xs font-bold uppercase bg-[#0F0F0F] text-gray-400 border border-gray-800 rounded-lg hover:bg-gray-800 cursor-pointer";
+            });
+            event.target.className = "filter-btn px-4 py-2 text-xs font-bold uppercase bg-red-600 text-white rounded-lg shadow-md cursor-pointer";
+            renderTable();
+        }
+
+        function handleStatusChange(val) {
+            const group = document.getElementById('fileUploadGroup');
+            const fileInput = document.getElementById('modalFile');
+            const label = document.getElementById('fileLabel');
+            const helpText = document.getElementById('fileHelpText');
+            const pack = languagePack[currentLang];
+            if(!group || !fileInput || !label || !helpText) return;
+
+            if (val.includes("TAHAP 01")) {
+                group.classList.remove('hidden'); fileInput.removeAttribute('accept'); 
+                label.innerText = pack.labelUploadGeneral; helpText.innerText = pack.helpUploadGeneral;
+            } else if (val.includes("TAHAP 08")) {
+                group.classList.remove('hidden'); fileInput.setAttribute('accept', '.pdf,image/*'); 
+                label.innerText = pack.labelUploadPdf; helpText.innerText = pack.helpUploadPdf;
+            } else {
+                group.classList.add('hidden'); fileInput.value = "";
+            }
+        }
+
+        function openModal(idAjuan) {
+            const item = masterData.find(d => d["ID Ajuan"] == idAjuan);
+            if(!item) return;
+            document.getElementById('modalIdAjuan').value = idAjuan;
+            document.getElementById('modalTitle').innerText = `Update: ${item.CABANG2}`;
+            const select = document.getElementById('modalStatusSelect');
+            
+            if(currentLang === 'id') {
+                select.innerHTML = `
+                    <option value="TAHAP 00 - BELUM PENGAJUAN">TAHAP 00 - BELUM PENGAJUAN</option>
+                    <option value="TAHAP 01 - BELUM LENGKAP">TAHAP 01 - BELUM LENGKAP</option>
+                    <option value="TAHAP 08 - PEMBUATAN DRAFT AKTA SEWA">TAHAP 08 - DRAFT AKTA SEWA</option>
+                    <option value="TAHAP 11A - TUNTAS">TAHAP 11A - TUNTAS</option>
+                `;
+                document.getElementById('noteTambahan').placeholder = "Masukkan poin hasil pembahasan di sini...";
+            } else {
+                select.innerHTML = `
+                    <option value="TAHAP 00 - BELUM PENGAJUAN">STAGE 00 - NOT YET SUBMITTED</option>
+                    <option value="TAHAP 01 - BELUM LENGKAP">STAGE 01 - INCOMPLETE</option>
+                    <option value="TAHAP 08 - PEMBUATAN DRAFT AKTA SEWA">STAGE 08 - LEASE DEED DRAFT</option>
+                    <option value="TAHAP 11A - TUNTAS">STAGE 11A - COMPLETED</option>
+                `;
+                document.getElementById('noteTambahan').placeholder = "Enter discussion points here...";
+            }
+            select.value = item.TAHAP_ID;
+            document.getElementById('modalTglProgres').value = new Date().toISOString().split('T')[0];
+            handleStatusChange(select.value);
+            document.getElementById('updateModal').className = "fixed inset-0 bg-black/70 backdrop-blur-sm opacity-100 z-50 flex justify-end";
+            document.getElementById('modalPanel').className = "bg-[#141416] border-l border-gray-800 w-full max-w-lg h-full p-6 shadow-2xl overflow-y-auto transform translate-x-0 transition-transform duration-300 flex flex-col justify-between";
+            document.body.classList.add('modal-active');
+        }
+
+        function closeModal() {
+            document.getElementById('updateModal').className = "fixed inset-0 bg-black/70 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 z-50 flex justify-end";
+            document.getElementById('modalPanel').className = "bg-[#141416] border-l border-gray-800 w-full max-w-lg h-full p-6 shadow-2xl overflow-y-auto transform translate-x-full transition-transform duration-300 flex flex-col justify-between";
+            document.body.classList.remove('modal-active');
+        }
+
+        function submitUpdate() {
+            const idAjuan = document.getElementById('modalIdAjuan').value;
+            const status = document.getElementById('modalStatusSelect').value;
+            const tglProgres = document.getElementById('modalTglProgres').value;
+            const fileInput = document.getElementById('modalFile');
+            const btn = document.getElementById('btnSimpan');
+            const pack = languagePack[currentLang];
+
+            if (!tglProgres) { alert(pack.alertDate); return; }
+            if (status.includes("TAHAP 08") && fileInput.files.length === 0) { alert(pack.alertFile); return; }
+
+            btn.innerText = pack.syncText; btn.disabled = true;
+            setTimeout(() => {
+                const idx = masterData.findIndex(d => d["ID Ajuan"] == idAjuan);
+                if(idx !== -1) {
+                    masterData[idx].TAHAP_ID = status;
+                    if(status.includes("TAHAP 00")) masterData[idx].TAHAP_EN = "STAGE 00 - NOT YET SUBMITTED";
+                    else if(status.includes("TAHAP 01")) masterData[idx].TAHAP_EN = "STAGE 01 - INCOMPLETE";
+                    else if(status.includes("TAHAP 08")) masterData[idx].TAHAP_EN = "STAGE 08 - DEED DRAFT";
+                    else if(status.includes("TAHAP 11A")) masterData[idx].TAHAP_EN = "STAGE 11A - COMPLETED";
+                }
+                alert(pack.alertSuccess); btn.disabled = false;
+                closeModal(); calculateStats(); renderTable();
+            }, 600);
+        }
+
+        // ===============================================
+        // SCRIPT LOGIC CANVAS MERCHANDISE PO (DEMO 2)
+        // ===============================================
+        let databaseHarga = JSON.parse(localStorage.getItem('db_harga')) || { pendek: 135000, "tiga-perempat": 145000, panjang: 155000 };
+        let databaseVoucher = JSON.parse(localStorage.getItem('db_voucher')) || { kode: "CORETANPERDANA", diskon: 15000 };
+        let voucherAktifTerpasang = 0;
+
+        const movableImg = document.getElementById('movable-img');
+        const fileInput = document.getElementById('file-input');
+        const sizeSlider = document.getElementById('size-slider');
+        const sizeVal = document.getElementById('size-val');
+        const baseMockup = document.getElementById('base-mockup');
+        const form = document.getElementById('order-form');
+        const successModal = document.getElementById('success-modal');
+        const produkSelect = document.getElementById('produk');
+        const warnaSelect = document.getElementById('warna');
+        const ukuranSelect = document.getElementById('ukuran');
+        
+        const priceTagSub = document.getElementById('price-tag-sub');
+        const priceTagDisc = document.getElementById('price-tag-disc');
+        const priceTagTotal = document.getElementById('price-tag-total');
+        const rowDiskon = document.getElementById('row-diskon');
+        const customWarnaContainer = document.getElementById('custom-warna-container');
+        const customWarnaInput = document.getElementById('custom-warna-input');
+
+        let imgState = { scale: 0.5, x: 80, y: 80 };
+
+        function updateCanvasBase() {
+            if(!produkSelect || !warnaSelect || !baseMockup) return;
+            const prod = produkSelect.value;
+            const col = warnaSelect.value;
+            
+            // Atur background & filter kecerahan svg mockup kaos
+            if (col === 'black') { 
+                baseMockup.parentNode.style.backgroundColor = "#212121"; 
+                baseMockup.style.filter = "invert(1)"; 
+                if(customWarnaContainer) customWarnaContainer.classList.add('hidden'); 
+            } else if (col === 'white') { 
+                baseMockup.parentNode.style.backgroundColor = "#ffffff"; 
+                baseMockup.style.filter = "invert(0)"; 
+                if(customWarnaContainer) customWarnaContainer.classList.add('hidden'); 
+            } else if (col === 'navy') { 
+                baseMockup.parentNode.style.backgroundColor = "#1b263b"; 
+                baseMockup.style.filter = "invert(1)"; 
+                if(customWarnaContainer) customWarnaContainer.classList.add('hidden'); 
+            } else if (col === 'custom') { 
+                baseMockup.parentNode.style.backgroundColor = "#556b2f"; 
+                baseMockup.style.filter = "invert(1)"; 
+                if(customWarnaContainer) customWarnaContainer.classList.remove('hidden'); 
+            }
+            
+            let hargaDasar = databaseHarga[prod] || 0;
+            let biayaTambahan = col === 'custom' ? 20000 : 0;
+            let subtotal = hargaDasar + biayaTambahan;
+            let totalAkhir = subtotal - voucherAktifTerpasang;
+            if (totalAkhir < 0) totalAkhir = 0;
+
+            if(priceTagSub) priceTagSub.innerText = "Rp " + subtotal.toLocaleString('id-ID');
+            if(priceTagDisc) priceTagDisc.innerText = "-Rp " + voucherAktifTerpasang.toLocaleString('id-ID');
+            if(priceTagTotal) priceTagTotal.innerText = "Rp " + totalAkhir.toLocaleString('id-ID');
+        }
+        
+        if(produkSelect) produkSelect.addEventListener('change', updateCanvasBase);
+        if(warnaSelect) warnaSelect.addEventListener('change', updateCanvasBase);
+
+        function klaimVoucher() {
+            const inputVoucher = document.getElementById('voucher-input').value.trim().toUpperCase();
+            const statusTxt = document.getElementById('voucher-status');
+            const pack = languagePack[currentLang];
+
+            if (inputVoucher === databaseVoucher.kode.toUpperCase()) {
+                voucherAktifTerpasang = parseInt(databaseVoucher.diskon);
+                statusTxt.innerText = `${pack.vchTrue} ${voucherAktifTerpasang.toLocaleString('id-ID')}`;
+                statusTxt.className = "text-xs mt-1 text-green-500 font-bold";
+                if(rowDiskon) rowDiskon.classList.remove('hidden');
+            } else {
+                voucherAktifTerpasang = 0;
+                statusTxt.innerText = pack.vchFalse;
+                statusTxt.className = "text-xs mt-1 text-red-500 font-bold";
+                if(rowDiskon) rowDiskon.classList.add('hidden');
+            }
+            statusTxt.classList.remove('hidden');
+            updateCanvasBase();
+        }
+
+        function bukaLoginAdmin() {
+            document.getElementById('admin-pass-input').value = "";
+            document.getElementById('admin-login-modal').classList.remove('hidden');
+        }
+        function bukaSizeChart() { document.getElementById('size-chart-modal').classList.remove('hidden'); }
+        function tutupModal(id) { document.getElementById(id).classList.add('hidden'); }
+
+        function cekPasswordAdmin() {
+            const pass = document.getElementById('admin-pass-input').value;
+            if (pass === PASSWORD_RAHASIA_KAMU) {
+                tutupModal('admin-login-modal');
+                document.getElementById('cfg-harga-pendek').value = databaseHarga.pendek;
+                document.getElementById('cfg-harga-tiga-perempat').value = databaseHarga["tiga-perempat"];
+                document.getElementById('cfg-harga-panjang').value = databaseHarga.panjang;
+                document.getElementById('cfg-voucher-code').value = databaseVoucher.kode;
+                document.getElementById('cfg-voucher-disc').value = databaseVoucher.diskon;
+                document.getElementById('admin-dashboard-modal').classList.remove('hidden');
+            } else { alert(languagePack[currentLang].admWrong); }
+        }
+
+        function simpanPengaturanAdmin() {
+            databaseHarga.pendek = parseInt(document.getElementById('cfg-harga-pendek').value) || 0;
+            databaseHarga["tiga-perempat"] = parseInt(document.getElementById('cfg-harga-tiga-perempat').value) || 0;
+            databaseHarga.panjang = parseInt(document.getElementById('cfg-harga-panjang').value) || 0;
+            databaseVoucher.kode = document.getElementById('cfg-voucher-code').value.trim().toUpperCase();
+            databaseVoucher.diskon = parseInt(document.getElementById('cfg-voucher-disc').value) || 0;
+            localStorage.setItem('db_harga', JSON.stringify(databaseHarga));
+            localStorage.setItem('db_voucher', JSON.stringify(databaseVoucher));
+            alert(languagePack[currentLang].admSaved);
+            tutupModal('admin-dashboard-modal');
+            updateCanvasBase();
+        }
+
+        if(fileInput) {
+            fileInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        movableImg.src = event.target.result;
+                        movableImg.classList.remove('hidden');
+                        movableImg.style.display = "block"; 
+                        resetPosition();
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+        }
+
+        if(sizeSlider) {
+            sizeSlider.addEventListener('input', function(e) {
+                imgState.scale = e.target.value / 100;
+                if(sizeVal) sizeVal.innerText = e.target.value;
+                applyTransform();
+            });
+        }
+
+        function moveImage(direction) {
+            const step = 4; 
+            if (direction === 'up') imgState.y -= step;
+            if (direction === 'down') imgState.y += step;
+            if (direction === 'left') imgState.x -= step;
+            if (direction === 'right') imgState.x += step;
+            applyTransform();
+        }
+
+        function resetPosition() {
+            imgState.x = 80; imgState.y = 80; imgState.scale = 0.5;
+            if(sizeSlider) sizeSlider.value = 50; 
+            if(sizeVal) sizeVal.innerText = 50;
+            applyTransform();
+        }
+
+        function applyTransform() {
+            if(movableImg) movableImg.style.transform = `translate(${imgState.x}px, ${imgState.y}px) scale(${imgState.scale})`;
+        }
+
+        // DRAG & DROP CANVAS HANDLERS
+        let isDragging = false; let startX, startY;
+        if(movableImg) {
+            movableImg.addEventListener('mousedown', startDrag); movableImg.addEventListener('touchstart', startDrag);
+        }
+        window.addEventListener('mousemove', drag); window.addEventListener('touchmove', drag);
+        window.addEventListener('mouseup', endDrag); window.addEventListener('touchend', endDrag);
+
+        function startDrag(e) {
+            isDragging = true;
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            startX = clientX - imgState.x; startY = clientY - imgState.y;
+        }
+        function drag(e) {
+            if (!isDragging) return;
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            imgState.x = clientX - startX; imgState.y = clientY - startY;
+            applyTransform();
+        }
+        function endDrag() { isDragging = false; }
+
+        // SUBMIT AND SEND TO WHATSAPP API GATEWAY
+        if(form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const nama = document.getElementById('nama').value;
+                const alamat = document.getElementById('alamat').value;
+                const wa = document.getElementById('whatsapp').value;
+                const produk = produkSelect.value;
+                const ukuran = ukuranSelect.value;
+                let warnaFinal = warnaSelect.value;
+                if (warnaFinal === 'custom') warnaFinal = "Custom: " + customWarnaInput.value;
+
+                const date = new Date();
+                const idOrder = `CK-${date.getFullYear()}${(date.getMonth() + 1).toString().padStart(2, '0')}-${Math.floor(1000 + Math.random() * 9000)}`;
+
+                document.getElementById('modal-order-id').innerText = idOrder;
+                successModal.classList.remove('hidden');
+
+                const totalHargaSistem = priceTagTotal.innerText;
+                const nomorAdminWA = "6281214436783"; 
+                
+                let textTemplate = "";
+                if(currentLang === 'id') {
+                    textTemplate = `Halo min! Saya baru saja submit orderan di website nih. 😎\n\n*Detail Order:*\n• Nama: ${nama}\n• ID Order: ${idOrder}\n• Jenis Produk: ${produk}\n• Warna Dasar: ${warnaFinal}\n• Ukuran Kaos: ${ukuran}\n• Total Biaya: ${totalHargaSistem}\n\nMohon diinfokan untuk instruksi pembayaran ya Kak, terima kasih!`;
+                } else {
+                    textTemplate = `Hello Admin! I have successfully placed a custom pre-order through the website dashboard. 🚀\n\n*Order Invoice Details:*\n• Name: ${nama}\n• Order ID: ${idOrder}\n• Template Design: ${produk}\n• Fabric Color: ${warnaFinal}\n• Size Selected: ${ukuran}\n• Final Price: ${totalHargaSistem}\n\nPlease update me on the validation procedure and invoice receipt. Thank you!`;
+                }
+                
+                const teksWA = encodeURIComponent(textTemplate);
+                document.getElementById('btn-wa').onclick = function() {
+                    window.open(`https://api.whatsapp.com/send?phone=${nomorAdminWA}&text=${teksWA}`, '_blank');
+                };
+            });
+        }
+    </script>
+</body>
+</html>

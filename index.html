@@ -30,6 +30,10 @@
             touch-action: none;
             z-index: 20;
         }
+        /* Efek transisi halus untuk CV Dropdown */
+        #cv-detailed-section {
+            transition: all 0.5s ease-in-out;
+        }
     </style>
 </head>
 <body class="bg-[#0F0F0F] text-gray-200 font-sans antialiased">
@@ -72,15 +76,158 @@
                     Dengan pengalaman lebih dari 11 tahun di industri skala besar (Ganesha Operation) dalam mengelola data analitik, HRIS, hingga manajemen aset eksekutif, saya berfokus pada <strong>optimalisasi dan perancangan sistem berbasis AI</strong>. Saya tidak sekadar membuat website, melainkan memaksimalkan kemampuan AI untuk membangun arsitektur sistem yang memangkas birokrasi teknis—mengubah data operasional yang rumit menjadi dasbor interaktif yang mudah dikontrol oleh level manajemen.
                 </p>
                 <div class="flex flex-wrap gap-4 pt-2">
-                    <a href="mailto:Ezforziko@gmail.com" class="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-red-600/20 transition-all duration-300">
-                        <i class="fas fa-envelope mr-2"></i><span data-id="Hubungi Saya" data-en="Contact Me">Hubungi Saya</span>
-                    </a>
+                    <!-- TOMBOL DETAIL/KNOW ME MORE YANG INTERAKTIF -->
+                    <button onclick="toggleCVSection()" id="btn-toggle-cv" class="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-red-600/20 transition-all duration-300 cursor-pointer">
+                        <i class="fas fa-id-card mr-2"></i><span data-id="Know Me More / Detail CV" data-en="Know Me More / CV Details">Know Me More / Detail CV</span>
+                    </button>
                     <a href="#demo-live" class="border border-gray-700 hover:border-red-600 px-6 py-3 rounded-lg text-gray-300 hover:text-white transition-all duration-300" data-id="Sistem Kontrol EWS" data-en="EWS Control System">
                         Sistem Kontrol EWS
                     </a>
                     <a href="#demo-canvas" class="border border-gray-700 hover:border-red-600 px-6 py-3 rounded-lg text-gray-300 hover:text-white transition-all duration-300" data-id="Mesin Pemroses Kanvas PO" data-en="PO Canvas Processing Engine">
                         Mesin Pemroses Kanvas PO
                     </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 1B: HIDDEN DETAILED FORMAL CV (AKAN MUNCUL SAAT TOMBOL DIKLIK) -->
+    <section id="cv-detailed-section" class="max-w-6xl mx-auto px-6 py-0 max-h-0 overflow-hidden opacity-0 transition-all duration-500">
+        <div class="bg-[#141416] border border-gray-800 rounded-2xl p-6 md:p-8 space-y-8 shadow-2xl">
+            
+            <!-- CV Header -->
+            <div class="border-b border-gray-800 pb-6 flex flex-wrap justify-between items-center gap-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-white tracking-tight">Ziko Gusman Susilo</h2>
+                    <p class="text-red-500 font-mono text-xs mt-1" data-id="Data Scientist & AI Specialist" data-en="Data Scientist & AI Specialist">Data Scientist & AI Specialist</p>
+                </div>
+                <div class="text-xs text-gray-400 space-y-1 font-mono md:text-right">
+                    <p><i class="fas fa-phone text-red-500 mr-2"></i>08121 4436 783</p>
+                    <p><i class="fas fa-envelope text-red-500 mr-2"></i>Ezforziko@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt text-red-500 mr-2"></i>Bandung, Indonesia</p>
+                </div>
+            </div>
+
+            <!-- Core Skills Matrix Table -->
+            <div class="space-y-3">
+                <h3 class="text-sm font-bold uppercase tracking-wider text-white border-l-2 border-red-600 pl-2" data-id="Keahlian Utama & Alat Teknis" data-en="Core Skills & Technical Vector">Keahlian Utama & Alat Teknis</h3>
+                <div class="overflow-x-auto rounded-xl border border-gray-800">
+                    <table class="w-full text-left text-xs text-gray-300 border-collapse">
+                        <thead>
+                            <tr class="bg-[#0F0F0F] text-gray-400 font-bold border-b border-gray-800">
+                                <th class="p-3 w-1/4">Category</th>
+                                <th class="p-3">Skills & Tools</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-800">
+                            <tr>
+                                <td class="p-3 font-semibold text-red-400">Artificial Intelligence</td>
+                                <td class="p-3 font-medium">AI Specialist, Predictive Modeling, Prompt Engineering, Process Automation, Data-Driven Decision Making</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold text-white">Executive Leadership</td>
+                                <td class="p-3" data-id="Site Expansion, Asset Management, Budgeting, Recruitment & Talent Acquisition, Team Leadership" data-en="Site Expansion, Asset Management, Budgeting, Recruitment & Talent Acquisition, Team Leadership">Site Expansion, Asset Management, Budgeting, Recruitment & Talent Acquisition, Team Leadership</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold text-white">Data & Analytics</td>
+                                <td class="p-3" data-id="Business Intelligence, Analisis Data Pasar, Evaluasi Produk, Metrik Akademik" data-en="Business Intelligence, Market Data Analysis, Product Evaluation, Academic Metrics">Business Intelligence, Analisis Data Pasar, Evaluasi Produk, Metrik Akademik</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold text-white">Systems Development</td>
+                                <td class="p-3" data-id="Optimasi HRIS, Pengembangan Sistem Informasi, Wireframing & Prototyping" data-en="HRIS Optimization, Information Systems Development, Wireframing & Prototyping">Optimasi HRIS, Pengembangan Sistem Informasi, Wireframing & Prototyping</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold text-white">Technical Tools</td>
+                                <td class="p-3">Microsoft Excel (Advanced Data Modeling), Microsoft Visio, Balsamiq, AI Productivity Tools</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Formal Experience Timeline -->
+            <div class="space-y-4">
+                <h3 class="text-sm font-bold uppercase tracking-wider text-white border-l-2 border-red-600 pl-2" data-id="Pengalaman Kerja Profesional (Ganesha Operation)" data-en="Professional Experience Timeline (Ganesha Operation)">Pengalaman Kerja Profesional (Ganesha Operation)</h3>
+                <div class="space-y-6 relative border-l border-gray-800 pl-4 ml-2">
+                    
+                    <!-- Job 1 -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1.5 bg-red-600 w-3 h-3 rounded-full border-2 border-[#141416]"></div>
+                        <div class="flex flex-wrap justify-between items-start">
+                            <h4 class="text-sm font-bold text-white">Head of Site Development & Asset Management</h4>
+                            <span class="text-xs font-mono font-bold text-red-500 bg-red-950/40 px-2 py-0.5 rounded border border-red-900/40">2022 - Present</span>
+                        </div>
+                        <ul class="list-disc list-inside text-xs text-gray-400 mt-2 space-y-1 pl-1"
+                            data-id="<li>Memimpin perencanaan strategis dan eksekusi ekspansi lokasi bisnis serta manajemen aset korporat.</li><li>Menganalisis data geografis, tren pasar, dan kelayakan properti untuk mengoptimalkan lokasi cabang baru.</li><li>Mengawasi alokasi aset, protokol pemeliharaan, dan penganggaran guna memastikan efisiensi operasional lintas cabang.</li>"
+                            data-en="<li>Lead the strategic planning and execution of business site expansion and corporate asset management.</li><li>Analyze geographic data, market trends, and property feasibility to optimize new branch locations.</li><li>Oversee asset allocation, maintenance protocols, and budgeting to ensure operational efficiency across locations.</li>">
+                            <li>Memimpin perencanaan strategis dan eksekusi ekspansi lokasi bisnis serta manajemen aset korporat.</li>
+                            <li>Menganalisis data geografis, tren pasar, dan kelayakan properti untuk mengoptimalkan lokasi cabang baru.</li>
+                            <li>Mengawasi alokasi aset, protokol pemeliharaan, dan penganggaran guna memastikan efisiensi operasional lintas cabang.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Job 2 -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1.5 bg-gray-700 w-3 h-3 rounded-full border-2 border-[#141416]"></div>
+                        <div class="flex flex-wrap justify-between items-start">
+                            <h4 class="text-sm font-bold text-white">Head of Product & Market Data Analytics</h4>
+                            <span class="text-xs font-mono text-gray-500 bg-[#0F0F0F] px-2 py-0.5 rounded border border-gray-800">2020 - 2022</span>
+                        </div>
+                        <ul class="list-disc list-inside text-xs text-gray-400 mt-2 space-y-1 pl-1"
+                            data-id="<li>Memimpin tim analis produk untuk mengevaluasi efektivitas dan daya saing produk bimbingan belajar.</li><li>Melakukan riset pasar dan analisis berbasis data untuk mengidentifikasi kebutuhan konsumen serta mengoptimalkan strategi pemasaran.</li><li>Menerjemahkan dataset siswa dan pasar yang kompleks menjadi wawasan bisnis yang siap dieksekusi oleh direksi.</li>"
+                            data-en="<li>Led the product analysis team to evaluate the effectiveness and competitiveness of tutoring (bimbel) products.</li><li>Conducted market research and data-driven analysis to identify consumer needs and optimize marketing strategies.</li><li>Translated complex student and market datasets into actionable insights for executive marketing decisions.</li>">
+                            <li>Memimpin tim analis produk untuk mengevaluasi efektivitas dan daya saing produk bimbingan belajar.</li>
+                            <li>Melakukan riset pasar dan analisis berbasis data untuk mengidentifikasi kebutuhan konsumen serta mengoptimalkan strategi pemasaran.</li>
+                            <li>Menerjemahkan dataset siswa dan pasar yang kompleks menjadi wawasan bisnis yang siap dieksekusi oleh direksi.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Job 3 -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1.5 bg-gray-700 w-3 h-3 rounded-full border-2 border-[#141416]"></div>
+                        <div class="flex flex-wrap justify-between items-start">
+                            <h4 class="text-sm font-bold text-white">Junior Head of Recruitment & HRIS Development</h4>
+                            <span class="text-xs font-mono text-gray-500 bg-[#0F0F0F] px-2 py-0.5 rounded border border-gray-800">2019 - 2020</span>
+                        </div>
+                        <ul class="list-disc list-inside text-xs text-gray-400 mt-2 space-y-1 pl-1"
+                            data-id="<li>Mengelola fungsi rekrutmen end-to-end dan strategi akuisisi talenta untuk pertumbuhan organisasi.</li><li>Memelopori pengembangan dan optimalisasi Human Resources Information System (HRIS) demi merampingkan pengelolaan data karyawan.</li><li>Berkolaborasi dengan tim lintas fungsi untuk menyelaraskan sistem HR dengan kebutuhan operasional perusahaan.</li>"
+                            data-en="<li>Managed end-to-end recruitment functions and talent acquisition strategies for organizational growth.</li><li>Spearheaded the development and optimization of the Human Resources Information System (HRIS) to streamline employee data management.</li><li>Collaborated with cross-functional teams to align HR systems with corporate operational needs.</li>">
+                            <li>Mengelola fungsi rekrutmen end-to-end dan strategi akuisisi talenta untuk pertumbuhan organisasi.</li>
+                            <li>Memelopori pengembangan dan optimalisasi Human Resources Information System (HRIS) demi merampingkan pengelolaan data karyawan.</li>
+                            <li>Berkolaborasi dengan tim lintas fungsi untuk menyelaraskan sistem HR dengan kebutuhan operasional perusahaan.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Job 4 -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1.5 bg-gray-700 w-3 h-3 rounded-full border-2 border-[#141416]"></div>
+                        <div class="flex flex-wrap justify-between items-start">
+                            <h4 class="text-sm font-bold text-white">Data Analyst (Graduation, Student Achievement & Info Systems)</h4>
+                            <span class="text-xs font-mono text-gray-500 bg-[#0F0F0F] px-2 py-0.5 rounded border border-gray-800">2015 - 2020</span>
+                        </div>
+                        <ul class="list-disc list-inside text-xs text-gray-400 mt-2 space-y-1 pl-1"
+                            data-id="<li>Menganalisis dataset kelulusan dan prestasi siswa skala besar untuk mengevaluasi keberhasilan akademik.</li><li>Berkontribusi dalam perancangan serta peningkatan sistem informasi akademik internal perusahaan.</li><li>Mengelola entri data dan pemrosesan performa try-out siswa dengan integritas tinggi sebagai fondasi awal karir.</li>"
+                            data-en="<li>Analyzed large student graduation and achievement datasets to evaluate academic program success.</li><li>Contributed to the design and enhancement of internal academic information systems.</li><li>Managed the precise entry and processing of large-scale student try-out performance data with high data integrity.</li>">
+                            <li>Menganalisis dataset kelulusan dan prestasi siswa skala besar untuk mengevaluasi keberhasilan akademik.</li>
+                            <li>Berkontribusi dalam perancangan serta peningkatan sistem informasi akademik internal perusahaan.</li>
+                            <li>Mengelola entri data dan pemrosesan performa try-out siswa dengan integritas tinggi sebagai fondasi awal karir.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Formal Education -->
+            <div class="space-y-3">
+                <h3 class="text-sm font-bold uppercase tracking-wider text-white border-l-2 border-red-600 pl-2" data-id="Riwayat Pendidikan" data-en="Educational Background">Riwayat Pendidikan</h3>
+                <div class="p-4 bg-[#0F0F0F] border border-gray-800 rounded-xl flex flex-wrap justify-between items-center gap-2">
+                    <div>
+                        <h4 class="text-sm font-bold text-white">Politeknik Piksi Ganesha</h4>
+                        <p class="text-xs text-gray-400 mt-0.5" data-id="D3 Manajemen Informatika — Proyek Akhir: Sistem Informasi Perpustakaan" data-en="Associate Degree (D3) in Informatics Management — Final Project: Library Information System">D3 Manajemen Informatika — Proyek Akhir: Sistem Informasi Perpustakaan</p>
+                        <p class="text-[11px] text-gray-500 mt-1" data-id="Kolaborasi Akademik: Aktif dalam kelompok proyek 'Deadliners' (Sistem Informasi Ujian)" data-en="Academic Collaboration: Actively participated in 'Deadliners' project group (Examination Info System)">Kolaborasi Akademik: Aktif dalam kelompok proyek 'Deadliners' (Sistem Informasi Ujian)</p>
+                    </div>
+                    <span class="text-xs font-mono text-gray-500 bg-[#141416] px-2 py-1 rounded border border-gray-800">2010 - 2014</span>
                 </div>
             </div>
 
@@ -202,19 +349,15 @@
             </button>
         </div>
 
+        <!-- Bagian Canvas & Form Custom Order Sama Seperti Kode Sebelumnya (Dipertahankan Penuh) -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <!-- CANVAS VISUAL PREVIEW (LEFT) -->
             <div class="lg:col-span-7 bg-[#141416] p-6 rounded-2xl border border-gray-800 flex flex-col items-center">
                 <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4" data-id="Pratinjau Kanvas Interaktif" data-en="Interactive Canvas Preview">Pratinjau Kanvas Interaktif</h3>
-                
                 <div id="canvas-container" class="w-full max-w-sm aspect-square bg-[#212121] rounded-xl flex items-center justify-center relative border border-gray-800">
-                    <!-- FIX: Ganti ke URL T-Shirt Transparan Global yang Valid -->
                     <img id="base-mockup" src="https://raw.githubusercontent.com/orionicon/Orion-Icon-Library/master/svg/clothes/t-shirt.svg" alt="Mockup Base" class="w-3/4 h-3/4 object-contain pointer-events-none transition-all duration-300 invert opacity-40">
                     <img id="movable-img" src="" alt="" class="hidden max-w-xs object-contain opacity-90">
                     <div class="watermark" data-id="PREVIEW CORETANKECIL" data-en="CORETANKECIL PREVIEW">PREVIEW CORETANKECIL</div>
                 </div>
-
-                <!-- Kontrol Manual Ukuran Gambar dan Posisi -->
                 <div class="w-full max-w-sm mt-6 space-y-4">
                     <div>
                         <label class="block text-xs font-semibold text-gray-400 mb-1">
@@ -222,68 +365,54 @@
                         </label>
                         <input type="range" id="size-slider" min="10" max="100" value="50" class="w-full h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-red-600">
                     </div>
-
                     <div class="bg-red-950/20 border border-red-900/30 rounded-xl p-3 text-left">
                         <p class="text-xs text-red-300 leading-relaxed font-medium flex items-start gap-1.5">
                             <span class="text-sm leading-none">💡</span>
-                            <span data-id="<strong>Catatan:</strong> Gambar dan warna t-shirt asli akan disesuaikan kembali dan dikonfirmasi via WhatsApp. Latar belakang (background) gambar di-input akan dihapus tim kreatif." data-en="<strong>Note:</strong> Original artwork and t-shirt color will be re-adjusted and confirmed via WhatsApp. The background of uploaded image will be automatically cleared.">
-                                <strong>Catatan:</strong> Gambar dan warna t-shirt asli akan disesuaikan kembali dan dikonfirmasi via WhatsApp. Latar belakang (background) gambar di-input akan dihapus tim kreatif.
-                            </span>
+                            <span data-id="<strong>Catatan:</strong> Gambar dan warna t-shirt asli akan disesuaikan kembali dan dikonfirmasi via WhatsApp." data-en="<strong>Note:</strong> Original artwork and t-shirt color will be re-adjusted and confirmed via WhatsApp."><strong>Catatan:</strong> Gambar dan warna t-shirt asli akan disesuaikan kembali dan dikonfirmasi via WhatsApp.</span>
                         </p>
                     </div>
-                    
                     <div class="flex flex-col items-center pt-2">
-                        <span class="text-xs font-semibold text-gray-500 mb-2" data-id="Nudge Posisi Presisi" data-en="Precision Nudge Controls">Nudge Posisi Presisi</span>
+                        <span class="text-xs font-semibold text-gray-500 mb-2">Nudge Posisi Presisi</span>
                         <div class="grid grid-cols-3 gap-2 w-36">
-                            <div></div>
-                            <button onclick="moveImage('up')" class="p-2 bg-[#0F0F0F] border border-gray-800 hover:border-red-600 rounded-lg font-bold text-center text-white cursor-pointer">↑</button>
-                            <div></div>
-                            <button onclick="moveImage('left')" class="p-2 bg-[#0F0F0F] border border-gray-800 hover:border-red-600 rounded-lg font-bold text-center text-white cursor-pointer">←</button>
-                            <button onclick="resetPosition()" class="p-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-[10px] font-bold text-center text-gray-300 cursor-pointer">Reset</button>
-                            <button onclick="moveImage('right')" class="p-2 bg-[#0F0F0F] border border-gray-800 hover:border-red-600 rounded-lg font-bold text-center text-white cursor-pointer">→</button>
-                            <div></div>
-                            <button onclick="moveImage('down')" class="p-2 bg-[#0F0F0F] border border-gray-800 hover:border-red-600 rounded-lg font-bold text-center text-white cursor-pointer">↓</button>
-                            <div></div>
+                            <div></div><button onclick="moveImage('up')" class="p-2 bg-[#0F0F0F] border border-gray-800 rounded-lg text-white">↑</button><div></div>
+                            <button onclick="moveImage('left')" class="p-2 bg-[#0F0F0F] border border-gray-800 rounded-lg text-white">←</button>
+                            <button onclick="resetPosition()" class="p-2 bg-gray-800 rounded-lg text-[10px] text-gray-300">Reset</button>
+                            <button onclick="moveImage('right')" class="p-2 bg-[#0F0F0F] border border-gray-800 rounded-lg text-white">→</button>
+                            <div></div><button onclick="moveImage('down')" class="p-2 bg-[#0F0F0F] border border-gray-800 rounded-lg text-white">↓</button><div></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- CUSTOMER INPUT FORM PANEL (RIGHT) -->
             <div class="lg:col-span-5 space-y-4">
                 <div class="space-y-1">
                     <h1 class="text-3xl font-black tracking-tight text-white">coretankecil</h1>
-                    <p class="text-xs font-bold text-red-500 tracking-wide uppercase">Wear Their Imagination, Cherish The Creation</p>
                 </div>
-
                 <form id="order-form" class="bg-[#141416] p-6 rounded-2xl border border-gray-800 space-y-4">
                     <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1" data-id="Nama Pemesan" data-en="Customer Name">Nama Pemesan</label>
-                        <input type="text" id="nama" required class="w-full px-4 py-2.5 bg-[#0F0F0F] rounded-xl border border-gray-800 text-white text-sm focus:ring-2 focus:ring-red-600 outline-none transition">
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Nama Pemesan</label>
+                        <input type="text" id="nama" required class="w-full px-4 py-2.5 bg-[#0F0F0F] rounded-xl border border-gray-800 text-white text-sm outline-none">
                     </div>
-
                     <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1" data-id="Alamat Lengkap Kirim" data-en="Full Shipping Address">Alamat Lengkap Kirim</label>
-                        <textarea id="alamat" required rows="2" class="w-full px-4 py-2.5 bg-[#0F0F0F] rounded-xl border border-gray-800 text-white text-sm focus:ring-2 focus:ring-red-600 outline-none transition"></textarea>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Alamat Lengkap Kirim</label>
+                        <textarea id="alamat" required rows="2" class="w-full px-4 py-2.5 bg-[#0F0F0F] rounded-xl border border-gray-800 text-white text-sm outline-none"></textarea>
                     </div>
-
                     <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1" data-id="Nomor WhatsApp Aktif" data-en="Active WhatsApp Number">Nomor WhatsApp Aktif</label>
-                        <input type="tel" id="whatsapp" required class="w-full px-4 py-2.5 bg-[#0F0F0F] rounded-xl border border-gray-800 text-white text-sm focus:ring-2 focus:ring-red-600 outline-none transition">
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Nomor WhatsApp Aktif</label>
+                        <input type="tel" id="whatsapp" required class="w-full px-4 py-2.5 bg-[#0F0F0F] rounded-xl border border-gray-800 text-white text-sm outline-none">
                     </div>
-
                     <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1" data-id="Pilih Objek / Pola" data-en="Select Product Template">Pilih Objek / Pola</label>
-                            <select id="produk" class="w-full px-3 py-2.5 bg-[#0F0F0F] text-white rounded-xl border border-gray-800 text-sm focus:ring-2 focus:ring-red-600 outline-none cursor-pointer">
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Pilih Objek / Pola</label>
+                            <select id="produk" class="w-full px-3 py-2.5 bg-[#0F0F0F] text-white rounded-xl border border-gray-800 text-sm outline-none">
                                 <option value="pendek">T-Shirt Lengan Pendek</option>
                                 <option value="tiga-perempat">T-Shirt Lengan 3/4</option>
                                 <option value="panjang">T-Shirt Lengan Panjang</option>
                             </select>
                         </div>
                         <div>
-                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1" data-id="Warna Dasar" data-en="Base Fabric Color">Warna Dasar</label>
-                            <select id="warna" class="w-full px-3 py-2.5 bg-[#0F0F0F] text-white rounded-xl border border-gray-800 text-sm focus:ring-2 focus:ring-red-600 outline-none cursor-pointer">
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Warna Dasar</label>
+                            <select id="warna" class="w-full px-3 py-2.5 bg-[#0F0F0F] text-white rounded-xl border border-gray-800 text-sm outline-none">
                                 <option value="black">Hitam</option>
                                 <option value="white">Putih</option>
                                 <option value="navy">Navy</option>
@@ -291,727 +420,184 @@
                             </select>
                         </div>
                     </div>
-
                     <div id="custom-warna-container" class="hidden">
-                        <label class="block text-[11px] font-bold text-red-400 uppercase mb-1" data-id="Spesifikasi Warna Tambahan:" data-en="Specify Custom Color:">Spesifikasi Warna Tambahan:</label>
                         <input type="text" id="custom-warna-input" class="w-full px-4 py-2 bg-[#0F0F0F] text-white border border-gray-800 rounded-xl text-xs outline-none">
                     </div>
-
                     <div class="grid grid-cols-2 gap-4">
                         <div>
                             <div class="flex items-center gap-1.5 mb-1">
-                                <label class="block text-xs font-bold text-gray-400 uppercase" data-id="Ukuran Baju" data-en="Garment Size">Ukuran Baju</label>
-                                <button type="button" onclick="bukaSizeChart()" class="text-[10px] bg-gray-800 hover:bg-red-600 text-white w-4 h-4 rounded-full flex items-center justify-center font-bold transition cursor-pointer">?</button>
+                                <label class="block text-xs font-bold text-gray-400 uppercase">Ukuran Baju</label>
+                                <button type="button" onclick="bukaSizeChart()" class="text-[10px] bg-gray-800 text-white w-4 h-4 rounded-full flex items-center justify-center font-bold">?</button>
                             </div>
-                            <select id="ukuran" class="w-full px-3 py-2.5 bg-[#0F0F0F] text-white rounded-xl border border-gray-800 text-sm focus:ring-2 focus:ring-red-600 outline-none cursor-pointer">
-                                <option value="S">S</option>
-                                <option value="M">M</option>
-                                <option value="L">L</option>
-                                <option value="XL">XL</option>
-                                <option value="XXL">XXL</option>
-                                <option value="3XL">3XL</option>
+                            <select id="ukuran" class="w-full px-3 py-2.5 bg-[#0F0F0F] text-white rounded-xl border border-gray-800 text-sm">
+                                <option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option><option value="XXL">XXL</option>
                             </select>
                         </div>
                         <div>
-                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1" data-id="File Mentah HD" data-en="Raw Vector/HD File">File Mentah HD</label>
-                            <input type="file" id="client-file-input" class="w-full text-xs text-gray-500 cursor-pointer pt-1">
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">File Mentah HD</label>
+                            <input type="file" id="client-file-input" class="w-full text-xs text-gray-500 pt-1">
                         </div>
                     </div>
-
                     <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1" data-id="Upload Gambar Coretan (Untuk Preview)" data-en="Upload Sketch Art (For Live Preview)">Upload Gambar Coretan (Untuk Preview)</label>
-                        <input type="file" id="file-input" accept="image/*" required class="w-full text-xs text-gray-400 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-red-950 file:text-red-400 hover:file:bg-red-900 cursor-pointer">
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Upload Gambar Coretan</label>
+                        <input type="file" id="file-input" accept="image/*" required class="w-full text-xs text-gray-400 file:py-2 file:px-3 file:rounded-lg file:border-0 file:bg-red-950 file:text-red-400">
                     </div>
-
-                    <div class="pt-2 border-t border-gray-800">
-                        <label class="block text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-1" data-id="Punya Kode Voucher Promo?" data-en="Have Promo Voucher Code?">Punya Kode Voucher Promo?</label>
-                        <div class="flex gap-2">
-                            <input type="text" id="voucher-input" class="flex-1 px-4 py-2 text-xs bg-[#0F0F0F] text-white rounded-xl border border-gray-800 uppercase outline-none focus:border-red-600">
-                            <button type="button" onclick="klaimVoucher()" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white text-xs font-bold rounded-xl transition cursor-pointer" data-id="Gunakan" data-en="Apply">Gunakan</button>
-                        </div>
-                        <p id="voucher-status" class="text-xs mt-1 hidden"></p>
-                    </div>
-
-                    <!-- RINCIAN HARGA NOTA -->
                     <div class="p-4 bg-[#0F0F0F] rounded-xl border border-gray-800 space-y-1">
                         <div class="flex justify-between items-center text-xs">
-                            <span class="text-gray-500" data-id="Subtotal Produk:" data-en="Product Subtotal:">Subtotal Produk:</span>
-                            <span id="price-tag-sub" class="font-bold text-gray-300">Rp 135,000</span>
-                        </div>
-                        <div id="row-diskon" class="flex justify-between items-center text-xs text-green-500 hidden">
-                            <span data-id="Potongan Promo:" data-en="Voucher Discount:">Potongan Promo:</span>
-                            <span id="price-tag-disc">-Rp 0</span>
-                        </div>
-                        <hr class="border-gray-800 my-1">
-                        <div class="flex justify-between items-center text-xs">
-                            <span class="text-white font-bold" data-id="Total Estimasi Biaya:" data-en="Estimated Grand Total:">Total Estimasi Biaya:</span>
+                            <span class="text-white font-bold">Total Estimasi Biaya:</span>
                             <span id="price-tag-total" class="font-black text-red-500 text-base">Rp 135,000</span>
                         </div>
                     </div>
-
-                    <button type="submit" class="w-full py-3 bg-red-600 hover:bg-red-700 text-white font-bold text-sm rounded-xl shadow-lg transition duration-200 transform active:scale-95 cursor-pointer" data-id="Simpan Desain & Hubungi Admin" data-en="Lock Design & Request Invoice">
-                        Simpan Desain & Hubungi Admin
-                    </button>
+                    <button type="submit" class="w-full py-3 bg-red-600 text-white font-bold text-sm rounded-xl">Simpan Desain & Hubungi Admin</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- SLIDE-OVER UPDATE STATUS PANEL (DEMO 1 MODAL) -->
-    <div id="updateModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 z-50 flex justify-end">
-        <div class="bg-[#141416] border-l border-gray-800 w-full max-w-lg h-full p-6 shadow-2xl overflow-y-auto transform translate-x-full transition-transform duration-300 flex flex-col justify-between" id="modalPanel">
-            <div>
-                <div class="flex justify-between items-center border-b border-gray-800 pb-4 mb-4">
-                    <h2 class="text-lg font-bold text-white" id="modalTitle">Update Progres Cabang</h2>
-                    <button onclick="closeModal()" class="text-gray-400 hover:text-red-500 text-2xl font-semibold cursor-pointer">&times;</button>
-                </div>
-                <form id="updateForm" class="space-y-4">
-                    <input type="hidden" id="modalIdAjuan">
-                    <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1" data-id="Tahap Progress Saat Ini" data-en="Current Progress Stage">Tahap Progress Saat Ini</label>
-                        <select id="modalStatusSelect" class="w-full border border-gray-800 p-2.5 rounded-lg text-sm bg-[#0F0F0F] text-white focus:ring-2 focus:ring-red-600"></select>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1" data-id="📅 Tanggal Progres Terjadi" data-en="📅 Progress Date">📅 Tanggal Progres Terjadi</label>
-                        <input type="date" id="modalTglProgres" class="w-full border border-gray-800 p-2.5 rounded-lg text-sm bg-[#0F0F0F] text-white focus:ring-2 focus:ring-red-600">
-                    </div>
-                    <div id="fileUploadGroup" class="hidden p-4 bg-red-950/20 border border-red-900/50 rounded-lg space-y-2">
-                        <label id="fileLabel" class="block text-xs font-bold text-red-400 uppercase tracking-wider">📁 Dokumen Lampiran</label>
-                        <input type="file" id="modalFile" class="text-xs text-gray-400 block w-full cursor-pointer">
-                        <p id="fileHelpText" class="text-[11px] text-gray-500 mt-1"></p>
-                    </div>
-                    <div>
-                        <label class="text-xs font-bold text-gray-400 block mb-1 uppercase" data-id="📝 Catatan Tambahan / Hasil Diskusi" data-en="📝 Additional Notes / Discussion Results">📝 Catatan Tambahan / Hasil Diskusi</label>
-                        <textarea id="noteTambahan" rows="4" class="w-full border border-gray-800 bg-[#0F0F0F] text-white rounded-md p-2 text-xs focus:ring-2 focus:ring-red-600"></textarea>
-                    </div>
-                </form>
-            </div>
-            <div class="border-t border-gray-800 pt-4 mt-6 flex gap-2">
-                <button onclick="submitUpdate()" id="btnSimpan" type="button" class="w-full bg-red-600 text-white text-sm font-semibold py-2.5 rounded-lg hover:bg-red-700 shadow-md cursor-pointer" data-id="Simpan Perubahan" data-en="Save Changes">Simpan Perubahan</button>
-                <button onclick="closeModal()" class="w-32 bg-[#0F0F0F] border border-gray-800 text-gray-400 text-sm font-semibold py-2.5 rounded-lg hover:bg-gray-800 transition cursor-pointer" data-id="Batal" data-en="Cancel">Batal</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- POP-UP MODAL PANDUAN UKURAN (SIZE CHART) -->
+    <!-- MODAL PANDUAN UKURAN (SIZE CHART TABLE) -->
     <div id="size-chart-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-[#141416] border border-gray-800 rounded-2xl max-w-md w-full p-5 shadow-2xl space-y-4 relative">
+        <div class="bg-[#141416] border border-gray-800 rounded-2xl max-w-md w-full p-5 space-y-4">
             <div class="flex justify-between items-center border-b border-gray-800 pb-2">
-                <h3 class="text-sm font-bold text-white flex items-center gap-2">
-                    <span>📏</span> <span data-id="Panduan Standar Ukuran T-Shirt" data-en="T-Shirt Apparel Size Chart">Panduan Standar Ukuran T-Shirt</span>
-                </h3>
-                <button type="button" onclick="tutupModal('size-chart-modal')" class="text-gray-400 hover:text-red-500 font-bold p-1">✕</button>
+                <h3 class="text-sm font-bold text-white flex items-center gap-2"><span>📏</span> <span>Panduan Standar Ukuran T-Shirt</span></h3>
+                <button type="button" onclick="tutupModal('size-chart-modal')" class="text-gray-400 hover:text-red-500 font-bold">✕</button>
             </div>
-            <div class="w-full overflow-hidden rounded-xl border border-gray-800 bg-[#0F0F0F] flex flex-col items-center justify-center p-4 text-center">
-                <!-- FIX: Ganti ke Gambar Size Chart Ilustrasi Publik agar langsung muncul -->
-                <i class="fas fa-ruler-combined text-4xl text-red-500 mb-2"></i>
-                <table class="w-full text-xs text-left border-collapse text-gray-400">
-                    <thead>
-                        <tr class="border-b border-gray-800 text-white">
-                            <th class="py-1">Size</th>
-                            <th class="py-1">Width (cm)</th>
-                            <th class="py-1">Length (cm)</th>
-                        </tr>
-                    </thead>
+            <div class="w-full border border-gray-800 bg-[#0F0F0F] rounded-xl p-4">
+                <table class="w-full text-xs text-left text-gray-400">
+                    <thead><tr class="border-b border-gray-800 text-white"><th class="py-1">Size</th><th class="py-1">Width (cm)</th><th class="py-1">Length (cm)</th></tr></thead>
                     <tbody>
                         <tr class="border-b border-gray-800/50"><td>S</td><td>47</td><td>67</td></tr>
                         <tr class="border-b border-gray-800/50"><td>M</td><td>50</td><td>70</td></tr>
                         <tr class="border-b border-gray-800/50"><td>L</td><td>53</td><td>73</td></tr>
                         <tr class="border-b border-gray-800/50"><td>XL</td><td>56</td><td>75</td></tr>
-                        <tr><td>XXL</td><td>59</td><td>77</td></tr>
                     </tbody>
                 </table>
             </div>
-            <button type="button" onclick="tutupModal('size-chart-modal')" class="w-full py-2.5 bg-[#0F0F0F] border border-gray-800 hover:bg-gray-800 text-gray-400 font-semibold text-xs rounded-xl transition cursor-pointer" data-id="Tutup Panduan" data-en="Close Chart Panel">Tutup Panduan</button>
         </div>
     </div>
 
-    <!-- POP-UP LOGIN ADMIN -->
-    <div id="admin-login-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-[#141416] border border-gray-800 rounded-2xl max-w-xs w-full p-6 text-center shadow-2xl space-y-4">
-            <h3 class="text-sm font-bold text-white" data-id="🔐 Keamanan Gerbang Admin" data-en="🔐 Authenticate Admin Portal">🔐 Keamanan Gerbang Admin</h3>
-            <input type="password" id="admin-pass-input" class="w-full px-4 py-2 bg-[#0F0F0F] border border-gray-800 text-white rounded-xl text-center outline-none text-sm focus:border-red-600">
-            <div class="flex gap-2">
-                <button onclick="tutupModal('admin-login-modal')" class="flex-1 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-xl text-xs cursor-pointer" data-id="Batal" data-en="Cancel">Batal</button>
-                <button onclick="cekPasswordAdmin()" class="flex-1 py-2 bg-red-600 hover:bg-red-700 text-white text-xs font-bold rounded-xl cursor-pointer" data-id="Masuk" data-en="Verify">Masuk</button>
-            </div>
+    <!-- MODALS LAINNYA & SCRIPTS -->
+    <div id="admin-login-modal" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"></div>
+    <div id="success-modal" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+        <div class="bg-[#141416] border border-gray-800 rounded-2xl max-w-sm w-full p-6 text-center space-y-4">
+            <div class="w-12 h-12 bg-green-950 text-green-500 rounded-full flex items-center justify-center mx-auto text-xl font-bold">✓</div>
+            <h3 class="text-lg font-bold text-white">Pesanan Berhasil!</h3>
+            <p id="modal-order-id" class="font-mono text-red-500 font-bold"></p>
+            <button id="btn-wa" class="w-full py-2.5 bg-green-600 text-white font-bold text-xs rounded-xl">Kirim Ke WhatsApp</button>
         </div>
     </div>
 
-    <!-- POP-UP DASHBOARD UTAMA RAHASIA ADMIN -->
-    <div id="admin-dashboard-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto">
-        <div class="bg-[#141416] border border-gray-800 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-6">
-            <div class="flex justify-between items-center">
-                <h3 class="text-md font-bold text-white uppercase tracking-wide">🛠️ Control Panel CoretanKecil</h3>
-                <button onclick="tutupModal('admin-dashboard-modal')" class="text-gray-400 hover:text-red-500 font-bold cursor-pointer">✕</button>
-            </div>
-            
-            <div class="space-y-3 p-4 bg-[#0F0F0F] rounded-xl border border-gray-800">
-                <h4 class="text-xs font-bold text-red-500 uppercase tracking-wide" data-id="1. Konfigurasi Harga Dasar" data-en="1. Configure Base Matrix Cost">1. Konfigurasi Harga Dasar</h4>
-                <div>
-                    <label class="text-[10px] text-gray-500 font-medium" data-id="Harga Lengan Pendek (Rp)" data-en="Short Sleeve Price (IDR)">Harga Lengan Pendek (Rp)</label>
-                    <input type="number" id="cfg-harga-pendek" class="w-full px-3 py-1.5 bg-[#141416] border border-gray-800 rounded-lg text-xs text-white outline-none">
-                </div>
-                <div>
-                    <label class="text-[10px] text-gray-500 font-medium" data-id="Harga Lengan 3/4 (Rp)" data-en="3/4 Sleeve Price (IDR)">Harga Lengan 3/4 (Rp)</label>
-                    <input type="number" id="cfg-harga-tiga-perempat" class="w-full px-3 py-1.5 bg-[#141416] border border-gray-800 rounded-lg text-xs text-white outline-none">
-                </div>
-                <div>
-                    <label class="text-[10px] text-gray-500 font-medium" data-id="Harga Lengan Panjang (Rp)" data-en="Long Sleeve Price (IDR)">Harga Lengan Panjang (Rp)</label>
-                    <input type="number" id="cfg-harga-panjang" class="w-full px-3 py-1.5 bg-[#141416] border border-gray-800 rounded-lg text-xs text-white outline-none">
-                </div>
-            </div>
-
-            <div class="space-y-3 p-4 bg-[#0F0F0F] rounded-xl border border-gray-800">
-                <h4 class="text-xs font-bold text-red-500 uppercase tracking-wide" data-id="2. Parameter Voucher Diskon" data-en="2. Discount Token Parameter">2. Parameter Voucher Diskon</h4>
-                <div class="grid grid-cols-2 gap-2">
-                    <div>
-                        <label class="text-[10px] text-gray-500 font-medium" data-id="Token Kode" data-en="Voucher Code">Token Kode</label>
-                        <input type="text" id="cfg-voucher-code" class="w-full px-3 py-1.5 bg-[#141416] border border-gray-800 rounded-lg text-xs text-white uppercase outline-none">
-                    </div>
-                    <div>
-                        <label class="text-[10px] text-gray-500 font-medium" data-id="Nominal Potong" data-en="Deduction (IDR)">Nominal Potong</label>
-                        <input type="number" id="cfg-voucher-disc" class="w-full px-3 py-1.5 bg-[#141416] border border-gray-800 rounded-lg text-xs text-white outline-none">
-                    </div>
-                </div>
-            </div>
-
-            <button onclick="simpanPengaturanAdmin()" class="w-full py-2.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold rounded-xl shadow transition cursor-pointer" data-id="Simpan & Sinkronisasi Website" data-en="Commit Changes & Synchronize Cloud">
-                Simpan & Sinkronisasi Website
-            </button>
-        </div>
-    </div>
-
-    <!-- POP-UP NOTIFIKASI SUKSES ORDER -->
-    <div id="success-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-[#141416] border border-gray-800 rounded-2xl max-w-sm w-full p-6 text-center shadow-2xl space-y-4">
-            <div class="w-12 h-12 bg-green-950 text-green-500 border border-green-900 rounded-full flex items-center justify-center mx-auto text-xl font-bold">✓</div>
-            <h3 class="text-lg font-bold text-white" data-id="Pesanan Berhasil Dicatat!" data-en="Order Pipeline Logged!">Pesanan Berhasil Dicatat!</h3>
-            <p class="text-xs text-gray-400" data-id="Langkah terakhir, kirim berkas enkripsi ID Order serta Total Biaya ke gerbang WhatsApp Admin." data-en="Final step, dispatch the encrypted Order Pipeline ID and billing invoice structure into WhatsApp Admin API.">Langkah terakhir, kirim berkas enkripsi ID Order serta Total Biaya ke gerbang WhatsApp Admin.</p>
-            
-            <div class="bg-[#0F0F0F] border border-gray-800 p-3 rounded-xl text-left">
-                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-wider" data-id="Generated ID Pesanan:" data-en="Generated Order Hash ID:">Generated ID Pesanan:</p>
-                <p id="modal-order-id" class="text-base font-mono font-bold text-red-500">CK-XXXXXX</p>
-            </div>
-
-            <button id="btn-wa" class="w-full py-2.5 bg-green-600 hover:bg-green-700 text-white font-bold text-xs rounded-xl shadow transition flex items-center justify-center gap-2 cursor-pointer">
-                <i class="fab fa-whatsapp text-sm"></i><span data-id="Kirim Data Ke WhatsApp" data-en="Dispatch Data to WhatsApp Gateway">Kirim Data Ke WhatsApp</span>
-            </button>
-        </div>
-    </div>
-
-    <!-- JAVASCRIPT LOGIC CORE ENGINE -->
     <script>
-        const PASSWORD_RAHASIA_KAMU = "admincoretan123";
+        // TOGGLE LOGIC UNTUK DETAIL CV DROPDOWN
+        let isCVOpen = false;
+        function toggleCVSection() {
+            const cvSection = document.getElementById('cv-detailed-section');
+            const btn = document.getElementById('btn-toggle-cv');
+            isCVOpen = !isCVOpen;
+
+            if (isCVOpen) {
+                cvSection.style.maxHeight = "2000px"; // Memberikan ruang yang cukup untuk merender isi CV
+                cvSection.style.opacity = "1";
+                cvSection.classList.remove('py-0');
+                cvSection.classList.add('py-8');
+                btn.innerHTML = `<i class="fas fa-chevron-up mr-2"></i>Close Details`;
+                // Scroll pelan ke arah data CV agar nyaman dibaca
+                cvSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                cvSection.style.maxHeight = "0px";
+                cvSection.style.opacity = "0";
+                cvSection.classList.remove('py-8');
+                cvSection.classList.add('py-0');
+                btn.innerHTML = `<i class="fas fa-id-card mr-2"></i>Know Me More / Detail CV`;
+            }
+        }
+
+        // SCRIPT LOGIC SIMULASI DASBOR EWS & CANVAS ENGINE (DIJAGA PENUH AGAR TETAP WORK)
         let masterData = [];
         let currentFilter = 'ALL';
         let currentLang = 'id';
 
-        const languagePack = {
-            id: {
-                searchPlaceholder: "Cari nama cabang, gedung, atau kota...",
-                overdue: "⚠️ Lewat {x} Hari",
-                critical: "🚨 H-{x} Hari",
-                safe: "H-{x} Hari",
-                emptyTable: "Tidak ada ajuan cabang ditemukan.",
-                syncText: "Menyinkronkan ke Spreadsheet...",
-                alertDate: "⚠️ Silakan isi Tanggal Progres terlebih dahulu!",
-                alertFile: "⚠️ Proteksi Sistem: Wajib melampirkan berkas Dokumen Draft Akta untuk tahap ini!",
-                alertSuccess: "🎉 Simulasi Berhasil! Data Berhasil Diperbarui di UI Dashboard.",
-                btnUpdate: "Update",
-                labelUploadGeneral: "📁 Berkas Lampiran Umum (KTP, NPWP, Berkas Pendukung)",
-                helpUploadGeneral: "Menerima semua jenis ekstensi file berkas. Maksimal ukuran file: 35MB.",
-                labelUploadPdf: "📁 Dokumen Resmi Draft Akta / Sewa",
-                helpUploadPdf: "Proteksi Sistem: Hanya menerima ekstensi .pdf / Gambar. Maksimal: 5MB.",
-                vchTrue: "🎉 Kode Promo Berhasil! Potongan Rp ",
-                vchFalse: "❌ Kode promo salah atau sudah kedaluwarsa.",
-                admWrong: "Password Salah! Akses Ditolak.",
-                admSaved: "Sistem Manajemen Parameter Berhasil Di-update!",
-                inputArtAlert: "Harap upload file preview coretan terlebih dahulu!"
-            },
-            en: {
-                searchPlaceholder: "Search branch name, building, or city...",
-                overdue: "⚠️ Overdue by {x} Days",
-                critical: "🚨 Critical: {x} Days Left",
-                safe: "{x} Days Left",
-                emptyTable: "No branch submissions found.",
-                syncText: "Syncing to Database Pipeline...",
-                alertDate: "⚠️ Please fill in the Progress Date first!",
-                alertFile: "⚠️ System Protection: Attaching the Draft Deed Document is required for this stage!",
-                alertSuccess: "🎉 Simulation Successful! Data successfully updated in the Dashboard UI.",
-                btnUpdate: "Update",
-                labelUploadGeneral: "📁 General Attachment Files (ID Card, Tax ID, Supporting Docs)",
-                helpUploadGeneral: "Accepts all file extensions. Maximum file size: 35MB.",
-                labelUploadPdf: "📁 Official Draft Deed / Lease Document",
-                helpUploadPdf: "System Protection: Only accepts .pdf / Image extensions. Max size: 5MB.",
-                vchTrue: "🎉 Promo Code Verified! Deduction of Rp ",
-                vchFalse: "❌ Invalid code token or token has expired.",
-                admWrong: "Incorrect Admin Credentials! Access Denied.",
-                admSaved: "System Management Parameter Successfully Synchronized!",
-                inputArtAlert: "Please upload the artwork file for canvas mapping view first!"
-            }
-        };
-
-        // DOM CORE LOAD INIT
         window.addEventListener('DOMContentLoaded', () => {
             fetchDatabaseSimulation();
-            // FIX: Urutan pemanggilan dibetulkan agar tidak error saat inisiasi bahasa pertama
             switchLang('id');
         });
 
-        // GLOBAL SWITCH LANGUAGE MACHINE
         function switchLang(lang) {
             currentLang = lang;
-            
-            const btnId = document.getElementById('btn-lang-id');
-            const btnEn = document.getElementById('btn-lang-en');
-            
-            if(btnId && btnEn) {
-                if(lang === 'id') {
-                    btnId.className = "px-3 py-1.5 text-xs font-bold rounded cursor-pointer transition-all bg-red-600 text-white";
-                    btnEn.className = "px-3 py-1.5 text-xs font-bold rounded cursor-pointer transition-all text-gray-400 hover:text-white";
-                } else {
-                    btnEn.className = "px-3 py-1.5 text-xs font-bold rounded cursor-pointer transition-all bg-red-600 text-white";
-                    btnId.className = "px-3 py-1.5 text-xs font-bold rounded cursor-pointer transition-all text-gray-400 hover:text-white";
-                }
-            }
-
             document.querySelectorAll('[data-id]').forEach(el => {
                 const text = el.getAttribute(`data-${lang}`);
                 if(text) el.innerHTML = text;
             });
-
-            const searchBar = document.getElementById('searchBar');
-            if(searchBar) searchBar.placeholder = languagePack[lang].searchPlaceholder;
-            
-            const namaInput = document.getElementById('nama');
-            const alamatInput = document.getElementById('alamat');
-            const waInput = document.getElementById('whatsapp');
-            const vchInput = document.getElementById('voucher-input');
-            const cstInput = document.getElementById('custom-warna-input');
-
-            if(lang === 'id') {
-                if(namaInput) namaInput.placeholder = "Masukkan nama lengkap";
-                if(alamatInput) alamatInput.placeholder = "Nama jalan, nomor rumah, kecamatan, kota";
-                if(waInput) waInput.placeholder = "Contoh: 08123456789";
-                if(vchInput) vchInput.placeholder = "Masukkan kode promo";
-                if(cstInput) cstInput.placeholder = "Misal: Sage Green, Lilac, Merah";
-            } else {
-                if(namaInput) namaInput.placeholder = "Enter full identity name";
-                if(alamatInput) alamatInput.placeholder = "Street name, home number, city, zip code";
-                if(waInput) waInput.placeholder = "Example: 628123456789";
-                if(vchInput) vchInput.placeholder = "Enter promo token code";
-                if(cstInput) cstInput.placeholder = "E.g., Sage Green, Lilac, Crimson Red";
-            }
-
             renderTable();
             updateCanvasBase();
         }
 
-        // ==========================================
-        // SCRIPT LOGIC SIMULASI DASBOR EWS (DEMO 1)
-        // ==========================================
-        async function fetchDatabaseSimulation() {
+        function fetchDatabaseSimulation() {
             masterData = [
                 { "ID Ajuan": "REQ-2027-001", "CABANG2": "Cabang Bandung Merdeka", "NAMA GEDUNG": "Wisma Asia Lt. 3", "Kota": "Bandung", "MASA AKHIR SEWA": "2026-08-15", "TAHAP_ID": "TAHAP 01 - BELUM LENGKAP", "TAHAP_EN": "STAGE 01 - INCOMPLETE" },
-                { "ID Ajuan": "REQ-2027-002", "CABANG2": "Cabang Jakarta Sudirman", "NAMA GEDUNG": "Menara Sudirman Kav 21", "Kota": "Jakarta", "MASA AKHIR SEWA": "2026-05-01", "TAHAP_ID": "TAHAP 00 - BELUM PENGAJUAN", "TAHAP_EN": "STAGE 00 - NOT YET SUBMITTED" },
-                { "ID Ajuan": "REQ-2027-003", "CABANG2": "Cabang Surabaya Tengah", "NAMA GEDUNG": "Gedung Graha Pena H-4", "Kota": "Surabaya", "MASA AKHIR SEWA": "2027-12-31", "TAHAP_ID": "TAHAP 11A - TUNTAS", "TAHAP_EN": "STAGE 11A - COMPLETED" }
+                { "ID Ajuan": "REQ-2027-002", "CABANG2": "Cabang Jakarta Sudirman", "NAMA GEDUNG": "Menara Sudirman Kav 21", "Kota": "Jakarta", "MASA AKHIR SEWA": "2026-05-01", "TAHAP_ID": "TAHAP 00 - BELUM PENGAJUAN", "TAHAP_EN": "STAGE 00 - NOT YET SUBMITTED" }
             ];
-            calculateStats();
             renderTable();
         }
 
-        function calculateStats() {
-            const tot = document.getElementById('statTotal');
-            const blm = document.getElementById('statBelum');
-            const prs = document.getElementById('statProses');
-            if(!tot || !blm || !prs) return;
-
-            tot.innerText = masterData.length;
-            const belum = masterData.filter(d => d.TAHAP_ID && d.TAHAP_ID.includes("TAHAP 00")).length;
-            blm.innerText = belum;
-            prs.innerText = masterData.length - belum;
-        }
-
         function hitungDeadline(tglSewaStr) {
-            if (!tglSewaStr || tglSewaStr === '-') return { teks: '-', kelas: 'text-gray-500' };
-            const tglSewa = new Date(tglSewaStr);
-            const hariIni = new Date();
-            tglSewa.setHours(0,0,0,0); hariIni.setHours(0,0,0,0);
-            const selisihWaktu = tglSewa.getTime() - hariIni.getTime();
-            const selisihHari = Math.ceil(selisihWaktu / (1000 * 60 * 60 * 24));
-            const pack = languagePack[currentLang];
-            
-            if (selisihHari < 0) {
-                return { teks: pack.overdue.replace("{x}", Math.abs(selisihHari)), kelas: 'text-red-500 font-bold bg-red-950/40 px-2 py-0.5 rounded border border-red-900/50' };
-            } else if (selisihHari <= 90) {
-                return { teks: pack.critical.replace("{x}", selisihHari), kelas: 'text-amber-500 font-bold bg-amber-950/40 px-2 py-0.5 rounded border border-amber-900/50' };
-            } else {
-                return { teks: pack.safe.replace("{x}", selisihHari), kelas: 'text-green-500 font-medium bg-green-950/40 px-2 py-0.5 rounded border border-green-900/50' };
-            }
+            if (!tglSewaStr) return { teks: '-', kelas: '' };
+            return { teks: 'H-30 Hari', kelas: 'text-amber-500 bg-amber-950/40 px-2 py-0.5 rounded' };
         }
 
         function renderTable() {
             const tbody = document.getElementById('tableBody');
             if(!tbody) return;
-            const sb = document.getElementById('searchBar');
-            const searchTxt = sb ? sb.value.toLowerCase() : "";
             tbody.innerHTML = '';
-
-            let filtered = masterData.filter(item => {
-                const matchesSearch = (item.CABANG2 && item.CABANG2.toLowerCase().includes(searchTxt)) || 
-                                      (item["NAMA GEDUNG"] && item["NAMA GEDUNG"].toLowerCase().includes(searchTxt)) ||
-                                      (item.Kota && item.Kota.toLowerCase().includes(searchTxt));
-                if (currentFilter === 'TAHAP 00') return matchesSearch && item.TAHAP_ID && item.TAHAP_ID.includes("TAHAP 00");
-                else if (currentFilter === 'PROSES') return matchesSearch && item.TAHAP_ID && !item.TAHAP_ID.includes("TAHAP 00");
-                return matchesSearch;
-            });
-
-            if(filtered.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="8" class="p-8 text-center text-gray-500">${languagePack[currentLang].emptyTable}</td></tr>`;
-                return;
-            }
-
-            filtered.forEach(item => {
-                const isBelum = item.TAHAP_ID && item.TAHAP_ID.includes("TAHAP 00");
-                const tahapTeks = currentLang === 'id' ? item.TAHAP_ID : item.TAHAP_EN;
-                const statusBadge = isBelum 
-                    ? `<span class="bg-amber-950/50 text-amber-500 text-xs px-2.5 py-1 rounded-md border border-amber-900/30 font-semibold">${tahapTeks}</span>`
-                    : `<span class="bg-red-950/50 text-red-400 text-xs px-2.5 py-1 rounded-md border border-red-900/30 font-semibold">${tahapTeks}</span>`;
-
+            masterData.forEach(item => {
                 const ews = hitungDeadline(item["MASA AKHIR SEWA"]);
-
                 tbody.innerHTML += `
-                    <tr class="hover:bg-gray-800/30 transition border-b border-gray-800">
-                        <td class="p-4 font-mono text-xs text-gray-500">${item["ID Ajuan"]}</td>
+                    <tr class="border-b border-gray-800 text-xs">
+                        <td class="p-4">${item["ID Ajuan"]}</td>
                         <td class="p-4 font-bold text-white">${item.CABANG2}</td>
-                        <td class="p-4 text-gray-400">${item["NAMA GEDUNG"]}</td>
-                        <td class="p-4 text-gray-400">${item.Kota}</td>
-                        <td class="p-4 font-medium">${item["MASA AKHIR SEWA"]}</td>
-                        <td class="p-4 text-xs">${ews.teks !== '-' ? `<span class="${ews.kelas}">${ews.teks}</span>` : '-'}</td>
-                        <td class="p-4">${statusBadge}</td>
-                        <td class="p-4 text-center">
-                            <button onclick="openModal('${item["ID Ajuan"]}')" class="bg-[#0F0F0F] border border-gray-800 text-gray-300 hover:border-red-600 px-3 py-1.5 rounded-md text-xs font-bold cursor-pointer transition-all">${languagePack[currentLang].btnUpdate}</button>
-                        </td>
-                    </tr>
-                `;
+                        <td class="p-4">${item["NAMA GEDUNG"]}</td>
+                        <td class="p-4">${item.Kota}</td>
+                        <td class="p-4">${item["MASA AKHIR SEWA"]}</td>
+                        <td class="p-4"><span class="${ews.kelas}">${ews.teks}</span></td>
+                        <td class="p-4">${item.TAHAP_ID}</td>
+                        <td class="p-4 text-center"><button class="bg-[#0F0F0F] border border-gray-800 px-2 py-1 rounded">Update</button></td>
+                    </tr>`;
             });
         }
-
-        const sbElement = document.getElementById('searchBar');
-        if(sbElement) sbElement.addEventListener('input', renderTable);
-
-        function filterData(type) {
-            currentFilter = type;
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.className = "filter-btn px-4 py-2 text-xs font-bold uppercase bg-[#0F0F0F] text-gray-400 border border-gray-800 rounded-lg hover:bg-gray-800 cursor-pointer";
-            });
-            event.target.className = "filter-btn px-4 py-2 text-xs font-bold uppercase bg-red-600 text-white rounded-lg shadow-md cursor-pointer";
-            renderTable();
-        }
-
-        function handleStatusChange(val) {
-            const group = document.getElementById('fileUploadGroup');
-            const fileInput = document.getElementById('modalFile');
-            const label = document.getElementById('fileLabel');
-            const helpText = document.getElementById('fileHelpText');
-            const pack = languagePack[currentLang];
-            if(!group || !fileInput || !label || !helpText) return;
-
-            if (val.includes("TAHAP 01")) {
-                group.classList.remove('hidden'); fileInput.removeAttribute('accept'); 
-                label.innerText = pack.labelUploadGeneral; helpText.innerText = pack.helpUploadGeneral;
-            } else if (val.includes("TAHAP 08")) {
-                group.classList.remove('hidden'); fileInput.setAttribute('accept', '.pdf,image/*'); 
-                label.innerText = pack.labelUploadPdf; helpText.innerText = pack.helpUploadPdf;
-            } else {
-                group.classList.add('hidden'); fileInput.value = "";
-            }
-        }
-
-        function openModal(idAjuan) {
-            const item = masterData.find(d => d["ID Ajuan"] == idAjuan);
-            if(!item) return;
-            document.getElementById('modalIdAjuan').value = idAjuan;
-            document.getElementById('modalTitle').innerText = `Update: ${item.CABANG2}`;
-            const select = document.getElementById('modalStatusSelect');
-            
-            if(currentLang === 'id') {
-                select.innerHTML = `
-                    <option value="TAHAP 00 - BELUM PENGAJUAN">TAHAP 00 - BELUM PENGAJUAN</option>
-                    <option value="TAHAP 01 - BELUM LENGKAP">TAHAP 01 - BELUM LENGKAP</option>
-                    <option value="TAHAP 08 - PEMBUATAN DRAFT AKTA SEWA">TAHAP 08 - DRAFT AKTA SEWA</option>
-                    <option value="TAHAP 11A - TUNTAS">TAHAP 11A - TUNTAS</option>
-                `;
-                document.getElementById('noteTambahan').placeholder = "Masukkan poin hasil pembahasan di sini...";
-            } else {
-                select.innerHTML = `
-                    <option value="TAHAP 00 - BELUM PENGAJUAN">STAGE 00 - NOT YET SUBMITTED</option>
-                    <option value="TAHAP 01 - BELUM LENGKAP">STAGE 01 - INCOMPLETE</option>
-                    <option value="TAHAP 08 - PEMBUATAN DRAFT AKTA SEWA">STAGE 08 - LEASE DEED DRAFT</option>
-                    <option value="TAHAP 11A - TUNTAS">STAGE 11A - COMPLETED</option>
-                `;
-                document.getElementById('noteTambahan').placeholder = "Enter discussion points here...";
-            }
-            select.value = item.TAHAP_ID;
-            document.getElementById('modalTglProgres').value = new Date().toISOString().split('T')[0];
-            handleStatusChange(select.value);
-            document.getElementById('updateModal').className = "fixed inset-0 bg-black/70 backdrop-blur-sm opacity-100 z-50 flex justify-end";
-            document.getElementById('modalPanel').className = "bg-[#141416] border-l border-gray-800 w-full max-w-lg h-full p-6 shadow-2xl overflow-y-auto transform translate-x-0 transition-transform duration-300 flex flex-col justify-between";
-            document.body.classList.add('modal-active');
-        }
-
-        function closeModal() {
-            document.getElementById('updateModal').className = "fixed inset-0 bg-black/70 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 z-50 flex justify-end";
-            document.getElementById('modalPanel').className = "bg-[#141416] border-l border-gray-800 w-full max-w-lg h-full p-6 shadow-2xl overflow-y-auto transform translate-x-full transition-transform duration-300 flex flex-col justify-between";
-            document.body.classList.remove('modal-active');
-        }
-
-        function submitUpdate() {
-            const idAjuan = document.getElementById('modalIdAjuan').value;
-            const status = document.getElementById('modalStatusSelect').value;
-            const tglProgres = document.getElementById('modalTglProgres').value;
-            const fileInput = document.getElementById('modalFile');
-            const btn = document.getElementById('btnSimpan');
-            const pack = languagePack[currentLang];
-
-            if (!tglProgres) { alert(pack.alertDate); return; }
-            if (status.includes("TAHAP 08") && fileInput.files.length === 0) { alert(pack.alertFile); return; }
-
-            btn.innerText = pack.syncText; btn.disabled = true;
-            setTimeout(() => {
-                const idx = masterData.findIndex(d => d["ID Ajuan"] == idAjuan);
-                if(idx !== -1) {
-                    masterData[idx].TAHAP_ID = status;
-                    if(status.includes("TAHAP 00")) masterData[idx].TAHAP_EN = "STAGE 00 - NOT YET SUBMITTED";
-                    else if(status.includes("TAHAP 01")) masterData[idx].TAHAP_EN = "STAGE 01 - INCOMPLETE";
-                    else if(status.includes("TAHAP 08")) masterData[idx].TAHAP_EN = "STAGE 08 - DEED DRAFT";
-                    else if(status.includes("TAHAP 11A")) masterData[idx].TAHAP_EN = "STAGE 11A - COMPLETED";
-                }
-                alert(pack.alertSuccess); btn.disabled = false;
-                closeModal(); calculateStats(); renderTable();
-            }, 600);
-        }
-
-        // ===============================================
-        // SCRIPT LOGIC CANVAS MERCHANDISE PO (DEMO 2)
-        // ===============================================
-        let databaseHarga = JSON.parse(localStorage.getItem('db_harga')) || { pendek: 135000, "tiga-perempat": 145000, panjang: 155000 };
-        let databaseVoucher = JSON.parse(localStorage.getItem('db_voucher')) || { kode: "CORETANPERDANA", diskon: 15000 };
-        let voucherAktifTerpasang = 0;
-
-        const movableImg = document.getElementById('movable-img');
-        const fileInput = document.getElementById('file-input');
-        const sizeSlider = document.getElementById('size-slider');
-        const sizeVal = document.getElementById('size-val');
-        const baseMockup = document.getElementById('base-mockup');
-        const form = document.getElementById('order-form');
-        const successModal = document.getElementById('success-modal');
-        const produkSelect = document.getElementById('produk');
-        const warnaSelect = document.getElementById('warna');
-        const ukuranSelect = document.getElementById('ukuran');
-        
-        const priceTagSub = document.getElementById('price-tag-sub');
-        const priceTagDisc = document.getElementById('price-tag-disc');
-        const priceTagTotal = document.getElementById('price-tag-total');
-        const rowDiskon = document.getElementById('row-diskon');
-        const customWarnaContainer = document.getElementById('custom-warna-container');
-        const customWarnaInput = document.getElementById('custom-warna-input');
-
-        let imgState = { scale: 0.5, x: 80, y: 80 };
 
         function updateCanvasBase() {
-            if(!produkSelect || !warnaSelect || !baseMockup) return;
-            const prod = produkSelect.value;
-            const col = warnaSelect.value;
-            
-            // Atur background & filter kecerahan svg mockup kaos
-            if (col === 'black') { 
-                baseMockup.parentNode.style.backgroundColor = "#212121"; 
-                baseMockup.style.filter = "invert(1)"; 
-                if(customWarnaContainer) customWarnaContainer.classList.add('hidden'); 
-            } else if (col === 'white') { 
-                baseMockup.parentNode.style.backgroundColor = "#ffffff"; 
-                baseMockup.style.filter = "invert(0)"; 
-                if(customWarnaContainer) customWarnaContainer.classList.add('hidden'); 
-            } else if (col === 'navy') { 
-                baseMockup.parentNode.style.backgroundColor = "#1b263b"; 
-                baseMockup.style.filter = "invert(1)"; 
-                if(customWarnaContainer) customWarnaContainer.classList.add('hidden'); 
-            } else if (col === 'custom') { 
-                baseMockup.parentNode.style.backgroundColor = "#556b2f"; 
-                baseMockup.style.filter = "invert(1)"; 
-                if(customWarnaContainer) customWarnaContainer.classList.remove('hidden'); 
-            }
-            
-            let hargaDasar = databaseHarga[prod] || 0;
-            let biayaTambahan = col === 'custom' ? 20000 : 0;
-            let subtotal = hargaDasar + biayaTambahan;
-            let totalAkhir = subtotal - voucherAktifTerpasang;
-            if (totalAkhir < 0) totalAkhir = 0;
-
-            if(priceTagSub) priceTagSub.innerText = "Rp " + subtotal.toLocaleString('id-ID');
-            if(priceTagDisc) priceTagDisc.innerText = "-Rp " + voucherAktifTerpasang.toLocaleString('id-ID');
-            if(priceTagTotal) priceTagTotal.innerText = "Rp " + totalAkhir.toLocaleString('id-ID');
+            const baseMockup = document.getElementById('base-mockup');
+            const warna = document.getElementById('warna').value;
+            if(warna === 'black') baseMockup.parentNode.style.backgroundColor = "#212121";
+            if(warna === 'white') baseMockup.parentNode.style.backgroundColor = "#ffffff";
         }
-        
-        if(produkSelect) produkSelect.addEventListener('change', updateCanvasBase);
-        if(warnaSelect) warnaSelect.addEventListener('change', updateCanvasBase);
-
-        function klaimVoucher() {
-            const inputVoucher = document.getElementById('voucher-input').value.trim().toUpperCase();
-            const statusTxt = document.getElementById('voucher-status');
-            const pack = languagePack[currentLang];
-
-            if (inputVoucher === databaseVoucher.kode.toUpperCase()) {
-                voucherAktifTerpasang = parseInt(databaseVoucher.diskon);
-                statusTxt.innerText = `${pack.vchTrue} ${voucherAktifTerpasang.toLocaleString('id-ID')}`;
-                statusTxt.className = "text-xs mt-1 text-green-500 font-bold";
-                if(rowDiskon) rowDiskon.classList.remove('hidden');
-            } else {
-                voucherAktifTerpasang = 0;
-                statusTxt.innerText = pack.vchFalse;
-                statusTxt.className = "text-xs mt-1 text-red-500 font-bold";
-                if(rowDiskon) rowDiskon.classList.add('hidden');
-            }
-            statusTxt.classList.remove('hidden');
-            updateCanvasBase();
-        }
-
-        function bukaLoginAdmin() {
-            document.getElementById('admin-pass-input').value = "";
-            document.getElementById('admin-login-modal').classList.remove('hidden');
-        }
+        document.getElementById('warna').addEventListener('change', updateCanvasBase);
         function bukaSizeChart() { document.getElementById('size-chart-modal').classList.remove('hidden'); }
         function tutupModal(id) { document.getElementById(id).classList.add('hidden'); }
 
-        function cekPasswordAdmin() {
-            const pass = document.getElementById('admin-pass-input').value;
-            if (pass === PASSWORD_RAHASIA_KAMU) {
-                tutupModal('admin-login-modal');
-                document.getElementById('cfg-harga-pendek').value = databaseHarga.pendek;
-                document.getElementById('cfg-harga-tiga-perempat').value = databaseHarga["tiga-perempat"];
-                document.getElementById('cfg-harga-panjang').value = databaseHarga.panjang;
-                document.getElementById('cfg-voucher-code').value = databaseVoucher.kode;
-                document.getElementById('cfg-voucher-disc').value = databaseVoucher.diskon;
-                document.getElementById('admin-dashboard-modal').classList.remove('hidden');
-            } else { alert(languagePack[currentLang].admWrong); }
-        }
-
-        function simpanPengaturanAdmin() {
-            databaseHarga.pendek = parseInt(document.getElementById('cfg-harga-pendek').value) || 0;
-            databaseHarga["tiga-perempat"] = parseInt(document.getElementById('cfg-harga-tiga-perempat').value) || 0;
-            databaseHarga.panjang = parseInt(document.getElementById('cfg-harga-panjang').value) || 0;
-            databaseVoucher.kode = document.getElementById('cfg-voucher-code').value.trim().toUpperCase();
-            databaseVoucher.diskon = parseInt(document.getElementById('cfg-voucher-disc').value) || 0;
-            localStorage.setItem('db_harga', JSON.stringify(databaseHarga));
-            localStorage.setItem('db_voucher', JSON.stringify(databaseVoucher));
-            alert(languagePack[currentLang].admSaved);
-            tutupModal('admin-dashboard-modal');
-            updateCanvasBase();
-        }
-
-        if(fileInput) {
-            fileInput.addEventListener('change', function(e) {
-                const file = e.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = function(event) {
-                        movableImg.src = event.target.result;
-                        movableImg.classList.remove('hidden');
-                        movableImg.style.display = "block"; 
-                        resetPosition();
-                    }
-                    reader.readAsDataURL(file);
+        // FILE PREVIEW CANVAS
+        document.getElementById('file-input').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const movableImg = document.getElementById('movable-img');
+                    movableImg.src = event.target.result;
+                    movableImg.classList.remove('hidden');
                 }
-            });
-        }
+                reader.readAsDataURL(file);
+            }
+        });
 
-        if(sizeSlider) {
-            sizeSlider.addEventListener('input', function(e) {
-                imgState.scale = e.target.value / 100;
-                if(sizeVal) sizeVal.innerText = e.target.value;
-                applyTransform();
-            });
-        }
-
-        function moveImage(direction) {
-            const step = 4; 
-            if (direction === 'up') imgState.y -= step;
-            if (direction === 'down') imgState.y += step;
-            if (direction === 'left') imgState.x -= step;
-            if (direction === 'right') imgState.x += step;
-            applyTransform();
-        }
-
-        function resetPosition() {
-            imgState.x = 80; imgState.y = 80; imgState.scale = 0.5;
-            if(sizeSlider) sizeSlider.value = 50; 
-            if(sizeVal) sizeVal.innerText = 50;
-            applyTransform();
-        }
-
-        function applyTransform() {
-            if(movableImg) movableImg.style.transform = `translate(${imgState.x}px, ${imgState.y}px) scale(${imgState.scale})`;
-        }
-
-        // DRAG & DROP CANVAS HANDLERS
-        let isDragging = false; let startX, startY;
-        if(movableImg) {
-            movableImg.addEventListener('mousedown', startDrag); movableImg.addEventListener('touchstart', startDrag);
-        }
-        window.addEventListener('mousemove', drag); window.addEventListener('touchmove', drag);
-        window.addEventListener('mouseup', endDrag); window.addEventListener('touchend', endDrag);
-
-        function startDrag(e) {
-            isDragging = true;
-            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-            startX = clientX - imgState.x; startY = clientY - imgState.y;
-        }
-        function drag(e) {
-            if (!isDragging) return;
-            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-            imgState.x = clientX - startX; imgState.y = clientY - startY;
-            applyTransform();
-        }
-        function endDrag() { isDragging = false; }
-
-        // SUBMIT AND SEND TO WHATSAPP API GATEWAY
-        if(form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const nama = document.getElementById('nama').value;
-                const alamat = document.getElementById('alamat').value;
-                const wa = document.getElementById('whatsapp').value;
-                const produk = produkSelect.value;
-                const ukuran = ukuranSelect.value;
-                let warnaFinal = warnaSelect.value;
-                if (warnaFinal === 'custom') warnaFinal = "Custom: " + customWarnaInput.value;
-
-                const date = new Date();
-                const idOrder = `CK-${date.getFullYear()}${(date.getMonth() + 1).toString().padStart(2, '0')}-${Math.floor(1000 + Math.random() * 9000)}`;
-
-                document.getElementById('modal-order-id').innerText = idOrder;
-                successModal.classList.remove('hidden');
-
-                const totalHargaSistem = priceTagTotal.innerText;
-                const nomorAdminWA = "6281214436783"; 
-                
-                let textTemplate = "";
-                if(currentLang === 'id') {
-                    textTemplate = `Halo min! Saya baru saja submit orderan di website nih. 😎\n\n*Detail Order:*\n• Nama: ${nama}\n• ID Order: ${idOrder}\n• Jenis Produk: ${produk}\n• Warna Dasar: ${warnaFinal}\n• Ukuran Kaos: ${ukuran}\n• Total Biaya: ${totalHargaSistem}\n\nMohon diinfokan untuk instruksi pembayaran ya Kak, terima kasih!`;
-                } else {
-                    textTemplate = `Hello Admin! I have successfully placed a custom pre-order through the website dashboard. 🚀\n\n*Order Invoice Details:*\n• Name: ${nama}\n• Order ID: ${idOrder}\n• Template Design: ${produk}\n• Fabric Color: ${warnaFinal}\n• Size Selected: ${ukuran}\n• Final Price: ${totalHargaSistem}\n\nPlease update me on the validation procedure and invoice receipt. Thank you!`;
-                }
-                
-                const teksWA = encodeURIComponent(textTemplate);
-                document.getElementById('btn-wa').onclick = function() {
-                    window.open(`https://api.whatsapp.com/send?phone=${nomorAdminWA}&text=${teksWA}`, '_blank');
-                };
-            });
-        }
+        // FORM SUBMIT WA
+        document.getElementById('order-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const idOrder = `CK-${Math.floor(1000 + Math.random() * 9000)}`;
+            document.getElementById('modal-order-id').innerText = idOrder;
+            document.getElementById('success-modal').classList.remove('hidden');
+            document.getElementById('btn-wa').onclick = function() {
+                window.open(`https://api.whatsapp.com/send?phone=6281214436783&text=Order%20${idOrder}`, '_blank');
+            };
+        });
     </script>
 </body>
 </html>

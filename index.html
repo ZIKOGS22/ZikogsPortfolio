@@ -4,18 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Ziko Gusman Susilo - AI Systems Integrator</title>
-    <!-- Tailwind CSS v4 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- FontAwesome untuk Ikon Modern -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .modal { transition: opacity 0.25s ease; }
-        body.modal-active { overflow: hidden; }
+        .modal-active { overflow: hidden; }
+        #canvas-container { position: relative; overflow: hidden; }
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.08);
+            pointer-events: none;
+            white-space: nowrap;
+            font-weight: bold;
+            z-index: 30;
+        }
+        #movable-img {
+            position: absolute;
+            cursor: move;
+            user-select: none;
+            touch-action: none;
+            z-index: 20;
+        }
     </style>
 </head>
 <body class="bg-[#0F0F0F] text-gray-200 font-sans antialiased">
 
-    <!-- LANGUAGE SWITCHER FLOATING BUTTON -->
     <div class="fixed top-4 right-4 z-50 bg-[#141416] border border-gray-800 rounded-lg p-1 flex gap-1 shadow-xl">
         <button onclick="switchLang('id')" id="btn-lang-id" class="px-3 py-1.5 text-xs font-bold rounded cursor-pointer transition-all bg-red-600 text-white">
             🇮🇩 ID
@@ -25,11 +41,9 @@
         </button>
     </div>
 
-    <!-- 1. HERO SECTION: PROFIL & PERSONAL BRANDING -->
     <section class="max-w-6xl mx-auto px-6 pt-16 pb-12">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             
-            <!-- Kolom Kiri: Foto Profil dengan Efek Glowing Red Border -->
             <div class="md:col-span-4 flex justify-center">
                 <div class="relative group">
                     <div class="absolute -inset-1 bg-gradient-to-r from-red-600 to-red-900 rounded-xl blur opacity-40 group-hover:opacity-100 transition duration-500"></div>
@@ -37,7 +51,6 @@
                 </div>
             </div>
             
-            <!-- Kolom Kanan: Detail Informasi Berdasarkan Pengalaman Nyata di CV -->
             <div class="md:col-span-8 space-y-6">
                 <div class="space-y-1">
                     <p class="text-red-500 font-mono text-sm tracking-widest uppercase">AI Systems Integrator & Data Professional</p>
@@ -46,7 +59,7 @@
                     </h1>
                 </div>
                 <p class="text-lg text-gray-400 leading-relaxed" 
-                   data-id="Dengan pengalaman lebih dari 11 tahun di industri skala besar (Ganesha Operation) dalam mengelola data analitik, HRIS, hingga manajemen aset eksekutif, saya berfokus pada <strong>optimalisasi dan perancangan sistem berbasis AI</strong>. Saya tidak sekadar membuat website, melainkan memaksimalkan kemampuan AI untuk membangun arsitektur sistem yang memangkas birokrasi teknis—mengubah data operasional yang rumit menjadi dasbor interaktif yang mudah dikontrol oleh level manajemen."
+                   data-id="Dengan pengalaman lebih dari 11 tahun di industri skala besar (Ganesha Operation) dalam mengelola data datak, HRIS, hingga manajemen aset eksekutif, saya berfokus pada <strong>optimalisasi dan perancangan sistem berbasis AI</strong>. Saya tidak sekadar membuat website, melainkan memaksimalkan kemampuan AI untuk membangun arsitektur sistem yang memangkas birokrasi teknis—mengubah data operasional yang rumit menjadi dasbor interaktif yang mudah dikontrol oleh level manajemen."
                    data-en="With over 11 years of dedicated experience in a large-scale industry (Ganesha Operation) spanning data analytics, HRIS, and executive asset management, I focus on <strong>optimizing and architecting AI-powered systems</strong>. I do not just build websites; instead, I maximize AI capabilities to design architectures that eliminate technical bureaucracy—transforming complex operational data into intuitive, interactive dashboards tailored for executive decision-making.">
                     Dengan pengalaman lebih dari 11 tahun di industri skala besar (Ganesha Operation) dalam mengelola data analitik, HRIS, hingga manajemen aset eksekutif, saya berfokus pada <strong>optimalisasi dan perancangan sistem berbasis AI</strong>. Saya tidak sekadar membuat website, melainkan memaksimalkan kemampuan AI untuk membangun arsitektur sistem yang memangkas birokrasi teknis—mengubah data operasional yang rumit menjadi dasbor interaktif yang mudah dikontrol oleh level manajemen.
                 </p>
@@ -54,8 +67,11 @@
                     <a href="mailto:Ezforziko@gmail.com" class="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-red-600/20 transition-all duration-300">
                         <i class="fas fa-envelope mr-2"></i><span data-id="Hubungi Saya" data-en="Contact Me">Hubungi Saya</span>
                     </a>
-                    <a href="#demo-live" class="border border-gray-700 hover:border-red-600 px-6 py-3 rounded-lg text-gray-300 hover:text-white transition-all duration-300" data-id="Jalankan Live Demo EWS" data-en="Run Live EWS Demo">
-                        Jalankan Live Demo EWS
+                    <a href="#demo-live" class="border border-gray-700 hover:border-red-600 px-6 py-3 rounded-lg text-gray-300 hover:text-white transition-all duration-300" data-id="Sistem Kontrol EWS" data-en="EWS Control System">
+                        Sistem Kontrol EWS
+                    </a>
+                    <a href="#demo-canvas" class="border border-gray-700 hover:border-red-600 px-6 py-3 rounded-lg text-gray-300 hover:text-white transition-all duration-300" data-id="Mesin Pemroses Kanvas PO" data-en="PO Canvas Processing Engine">
+                        Mesin Pemroses Kanvas PO
                     </a>
                 </div>
             </div>
@@ -63,13 +79,11 @@
         </div>
     </section>
 
-    <!-- 2. LINE PEMBATAS (GRADIENT DIVIDER) -->
-    <div class="max-w-6xl mx-auto px-6 my-8">
+    <div class="max-w-6xl mx-auto px-6 my-4">
         <div class="h-[1px] bg-gradient-to-r from-transparent via-red-600 to-transparent w-full"></div>
     </div>
 
-    <!-- 3. SECTION VALUE: METODOLOGI KERJA -->
-    <section class="max-w-6xl mx-auto px-6 py-12">
+    <section class="max-w-6xl mx-auto px-6 py-8">
         <div class="text-center max-w-3xl mx-auto mb-12">
             <h2 class="text-2xl font-bold text-white mb-4 inline-block border-b-2 border-red-600 pb-2" data-id="Pendekatan Integrasi Sistem" data-en="System Integration Approach">Pendekatan Integrasi Sistem</h2>
             <p class="text-gray-400" data-id="Menghubungkan efisiensi logika kecerdasan buatan dengan fleksibilitas manajemen data lapangan." data-en="Bridging the efficiency of artificial intelligence logic with the flexibility of field data management.">Menghubungkan efisiensi logika kecerdasan buatan dengan fleksibilitas manajemen data lapangan.</p>
@@ -89,14 +103,16 @@
         </div>
     </section>
 
-    <!-- 4. SECTION PORTFOLIO: LIVE DEMO EWS KONTROLING CABANG -->
-    <section id="demo-live" class="max-w-6xl mx-auto px-6 py-12 mb-16 space-y-6">
+    <div class="max-w-6xl mx-auto px-6 my-4">
+        <div class="h-[1px] bg-gradient-to-r from-transparent via-red-600 to-transparent w-full"></div>
+    </div>
+
+    <section id="demo-live" class="max-w-6xl mx-auto px-6 py-8 space-y-6">
         <div class="border-l-4 border-red-600 pl-3">
-            <h2 class="text-2xl font-bold text-white" data-id="Interactive Demo: EWS Kontroling Cabang" data-en="Interactive Demo: Branch Control EWS">Interactive Demo: EWS Kontroling Cabang</h2>
-            <p class="text-sm text-gray-400 mt-1" data-id="Proof of Concept (PoC) Dashboard Monitoring Tanggal Jatuh Tempo Sewa Aset dengan Validasi Berkas Dinamis." data-en="Proof of Concept (PoC) Lease Expiration Monitoring Dashboard with Dynamic File Validation.">Proof of Concept (PoC) Dashboard Monitoring Tanggal Jatuh Tempo Sewa Aset dengan Validasi Berkas Dinamis.</p>
+            <h2 class="text-2xl font-bold text-white" data-id="Demo 01: EWS Kontroling Cabang" data-en="Demo 01: Branch Control EWS">Demo 01: EWS Kontroling Cabang</h2>
+            <p class="text-sm text-gray-400 mt-1" data-id="Dashboard Monitoring Tanggal Jatuh Tempo Sewa Aset dengan Validasi Berkas Dinamis." data-en="Lease Expiration Monitoring Dashboard with Dynamic File Validation.">Dashboard Monitoring Tanggal Jatuh Tempo Sewa Aset dengan Validasi Berkas Dinamis.</p>
         </div>
 
-        <!-- Quick Stats Cards -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div class="bg-[#141416] p-4 rounded-xl border border-gray-800 flex items-center justify-between">
                 <div>
@@ -121,7 +137,6 @@
             </div>
         </div>
 
-        <!-- Filter Control & Search -->
         <div class="bg-[#141416] p-4 rounded-xl border border-gray-800 flex flex-wrap gap-3 items-center justify-between">
             <div class="flex items-center gap-2 w-full md:w-auto">
                 <input type="text" id="searchBar" placeholder="Cari nama cabang, gedung, atau kota..." class="w-full md:w-80 px-4 py-2 bg-[#0F0F0F] border border-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 text-sm text-white">
@@ -133,7 +148,6 @@
             </div>
         </div>
 
-        <!-- Main Table Grid -->
         <div class="bg-[#141416] rounded-xl border border-gray-800 overflow-hidden">
             <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse">
@@ -159,7 +173,171 @@
         </div>
     </section>
 
-    <!-- SLIDE-OVER UPDATE STATUS PANEL -->
+    <div class="max-w-6xl mx-auto px-6 my-4">
+        <div class="h-[1px] bg-gradient-to-r from-transparent via-red-600 to-transparent w-full"></div>
+    </div>
+
+    <section id="demo-canvas" class="max-w-6xl mx-auto px-6 py-8 space-y-6">
+        <div class="flex justify-between items-start border-l-4 border-red-600 pl-3">
+            <div>
+                <h2 class="text-2xl font-bold text-white" data-id="Demo 02: Interactive Canvas & Order Processing Engine" data-en="Demo 02: Interactive Canvas & Order Processing Engine">Demo 02: Interactive Canvas & Order Processing Engine</h2>
+                <p class="text-sm text-gray-400 mt-1" data-id="Modul E-Commerce Custom Pre-Order Terintegrasi Dengan Google Apps Script & Klien WA." data-en="Custom Pre-Order E-Commerce Module Integrated with Google Apps Script & WA Client API.">Modul E-Commerce Custom Pre-Order Terintegrasi Dengan Google Apps Script & Klien WA.</p>
+            </div>
+            <button onclick="bukaLoginAdmin()" class="text-xs bg-[#141416] border border-gray-800 text-gray-400 hover:text-red-500 font-mono px-3 py-1.5 rounded-lg transition cursor-pointer">
+                <i class="fas fa-tools mr-1"></i>Admin Area
+            </button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div class="lg:col-span-7 bg-[#141416] p-6 rounded-2xl border border-gray-800 flex flex-col items-center">
+                <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4" data-id="Pratinjau Kanvas Interaktif" data-en="Interactive Canvas Preview">Pratinjau Kanvas Interaktif</h3>
+                
+                <div id="canvas-container" class="w-full max-w-sm aspect-square bg-[#0F0F0F] rounded-xl flex items-center justify-center relative border border-gray-800">
+                    <img id="base-mockup" src="kaos-polos.png" alt="Mockup Base" class="w-full h-full object-contain pointer-events-none transition-all duration-300" style="mix-blend-mode: multiply !important; background-color: #212121;">
+                    <img id="movable-img" src="" alt="" class="hidden max-w-xs object-contain opacity-90">
+                    <div class="watermark" data-id="PREVIEW CORETANKECIL" data-en="CORETANKECIL PREVIEW">PREVIEW CORETANKECIL</div>
+                </div>
+
+                <div class="w-full max-w-sm mt-6 space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 mb-1">
+                            <span data-id="Atur Ukuran Gambar Coretan" data-en="Adjust Artwork Size">Atur Ukuran Gambar Coretan</span> (<span id="size-val">50</span>%)
+                        </label>
+                        <input type="range" id="size-slider" min="10" max="100" value="50" class="w-full h-1 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-red-600">
+                    </div>
+
+                    <div class="bg-red-950/20 border border-red-900/30 rounded-xl p-3 text-left">
+                        <p class="text-xs text-red-300 leading-relaxed font-medium flex items-start gap-1.5">
+                            <span class="text-sm leading-none">💡</span>
+                            <span data-id="<strong>Catatan:</strong> Gambar dan warna t-shirt asli akan disesuaikan kembali dan dikonfirmasi via WhatsApp. Latar belakang (background) gambar di-input akan dihapus tim kreatif." data-en="<strong>Note:</strong> Original artwork and t-shirt color will be re-adjusted and confirmed via WhatsApp. The background of uploaded image will be automatically cleared.">
+                                <strong>Catatan:</strong> Gambar dan warna t-shirt asli akan disesuaikan kembali dan dikonfirmasi via WhatsApp. Latar belakang (background) gambar di-input akan dihapus tim kreatif.
+                            </span>
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-col items-center pt-2">
+                        <span class="text-xs font-semibold text-gray-500 mb-2" data-id="Nudge Posisi Presisi" data-en="Precision Nudge Controls">Nudge Posisi Presisi</span>
+                        <div class="grid grid-cols-3 gap-2 w-36">
+                            <div></div>
+                            <button onclick="moveImage('up')" class="p-2 bg-[#0F0F0F] border border-gray-800 hover:border-red-600 rounded-lg font-bold text-center text-white cursor-pointer">↑</button>
+                            <div></div>
+                            <button onclick="moveImage('left')" class="p-2 bg-[#0F0F0F] border border-gray-800 hover:border-red-600 rounded-lg font-bold text-center text-white cursor-pointer">←</button>
+                            <button onclick="resetPosition()" class="p-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-[10px] font-bold text-center text-gray-300 cursor-pointer">Reset</button>
+                            <button onclick="moveImage('right')" class="p-2 bg-[#0F0F0F] border border-gray-800 hover:border-red-600 rounded-lg font-bold text-center text-white cursor-pointer">→</button>
+                            <div></div>
+                            <button onclick="moveImage('down')" class="p-2 bg-[#0F0F0F] border border-gray-800 hover:border-red-600 rounded-lg font-bold text-center text-white cursor-pointer">↓</button>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 space-y-4">
+                <div class="space-y-1">
+                    <h1 class="text-3xl font-black tracking-tight text-white">coretankecil</h1>
+                    <p class="text-xs font-bold text-red-500 tracking-wide uppercase">Wear Their Imagination, Cherish The Creation</p>
+                </div>
+
+                <form id="order-form" class="bg-[#141416] p-6 rounded-2xl border border-gray-800 space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1" data-id="Nama Pemesan" data-en="Customer Name">Nama Pemesan</label>
+                        <input type="text" id="nama" required class="w-full px-4 py-2.5 bg-[#0F0F0F] rounded-xl border border-gray-800 text-white text-sm focus:ring-2 focus:ring-red-600 outline-none transition">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1" data-id="Alamat Lengkap Kirim" data-en="Full Shipping Address">Alamat Lengkap Kirim</label>
+                        <textarea id="alamat" required rows="2" class="w-full px-4 py-2.5 bg-[#0F0F0F] rounded-xl border border-gray-800 text-white text-sm focus:ring-2 focus:ring-red-600 outline-none transition"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1" data-id="Nomor WhatsApp Aktif" data-en="Active WhatsApp Number">Nomor WhatsApp Aktif</label>
+                        <input type="tel" id="whatsapp" required class="w-full px-4 py-2.5 bg-[#0F0F0F] rounded-xl border border-gray-800 text-white text-sm focus:ring-2 focus:ring-red-600 outline-none transition">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1" data-id="Pilih Objek / Pola" data-en="Select Product Template">Pilih Objek / Pola</label>
+                            <select id="produk" class="w-full px-3 py-2.5 bg-[#0F0F0F] text-white rounded-xl border border-gray-800 text-sm focus:ring-2 focus:ring-red-600 outline-none cursor-pointer">
+                                <option value="pendek">T-Shirt Lengan Pendek</option>
+                                <option value="tiga-perempat">T-Shirt Lengan 3/4</option>
+                                <option value="panjang">T-Shirt Lengan Panjang</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1" data-id="Warna Dasar" data-en="Base Fabric Color">Warna Dasar</label>
+                            <select id="warna" class="w-full px-3 py-2.5 bg-[#0F0F0F] text-white rounded-xl border border-gray-800 text-sm focus:ring-2 focus:ring-red-600 outline-none cursor-pointer">
+                                <option value="black">Hitam</option>
+                                <option value="white">Putih</option>
+                                <option value="navy">Navy</option>
+                                <option value="custom">Custom Warna (+Rp 20.000)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="custom-warna-container" class="hidden">
+                        <label class="block text-[11px] font-bold text-red-400 uppercase mb-1" data-id="Spesifikasi Warna Tambahan:" data-en="Specify Custom Color:">Spesifikasi Warna Tambahan:</label>
+                        <input type="text" id="custom-warna-input" class="w-full px-4 py-2 bg-[#0F0F0F] text-white border border-gray-800 rounded-xl text-xs outline-none">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <div class="flex items-center gap-1.5 mb-1">
+                                <label class="block text-xs font-bold text-gray-400 uppercase" data-id="Ukuran Baju" data-en="Garment Size">Ukuran Baju</label>
+                                <button type="button" onclick="bukaSizeChart()" class="text-[10px] bg-gray-800 hover:bg-red-600 text-white w-4 h-4 rounded-full flex items-center justify-center font-bold transition cursor-pointer">?</button>
+                            </div>
+                            <select id="ukuran" class="w-full px-3 py-2.5 bg-[#0F0F0F] text-white rounded-xl border border-gray-800 text-sm focus:ring-2 focus:ring-red-600 outline-none cursor-pointer">
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                                <option value="XXL">XXL</option>
+                                <option value="3XL">3XL</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1" data-id="File Mentah HD" data-en="Raw Vector/HD File">File Mentah HD</label>
+                            <input type="file" id="client-file-input" class="w-full text-xs text-gray-500 cursor-pointer pt-1">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1" data-id="Upload Gambar Coretan (Untuk Preview)" data-en="Upload Sketch Art (For Live Preview)">Upload Gambar Coretan (Untuk Preview)</label>
+                        <input type="file" id="file-input" accept="image/*" required class="w-full text-xs text-gray-400 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-red-950 file:text-red-400 hover:file:bg-red-900 cursor-pointer">
+                    </div>
+
+                    <div class="pt-2 border-t border-gray-800">
+                        <label class="block text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-1" data-id="Punya Kode Voucher Promo?" data-en="Have Promo Voucher Code?">Punya Kode Voucher Promo?</label>
+                        <div class="flex gap-2">
+                            <input type="text" id="voucher-input" class="flex-1 px-4 py-2 text-xs bg-[#0F0F0F] text-white rounded-xl border border-gray-800 uppercase outline-none focus:border-red-600">
+                            <button type="button" onclick="klaimVoucher()" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white text-xs font-bold rounded-xl transition cursor-pointer" data-id="Gunakan" data-en="Apply">Gunakan</button>
+                        </div>
+                        <p id="voucher-status" class="text-xs mt-1 hidden"></p>
+                    </div>
+
+                    <div class="p-4 bg-[#0F0F0F] rounded-xl border border-gray-800 space-y-1">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="text-gray-500" data-id="Subtotal Produk:" data-en="Product Subtotal:">Subtotal Produk:</span>
+                            <span id="price-tag-sub" class="font-bold text-gray-300">Rp 135,000</span>
+                        </div>
+                        <div id="row-diskon" class="flex justify-between items-center text-xs text-green-500 hidden">
+                            <span data-id="Potongan Promo:" data-en="Voucher Discount:">Potongan Promo:</span>
+                            <span id="price-tag-disc">-Rp 0</span>
+                        </div>
+                        <hr class="border-gray-800 my-1">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="text-white font-bold" data-id="Total Estimasi Biaya:" data-en="Estimated Grand Total:">Total Estimasi Biaya:</span>
+                            <span id="price-tag-total" class="font-black text-red-500 text-base">Rp 135,000</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full py-3 bg-red-600 hover:bg-red-700 text-white font-bold text-sm rounded-xl shadow-lg transition duration-200 transform active:scale-95 cursor-pointer" data-id="Simpan Desain & Hubungi Admin" data-en="Lock Design & Request Invoice">
+                        Simpan Desain & Hubungi Admin
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <div id="updateModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 z-50 flex justify-end">
         <div class="bg-[#141416] border-l border-gray-800 w-full max-w-lg h-full p-6 shadow-2xl overflow-y-auto transform translate-x-full transition-transform duration-300 flex flex-col justify-between" id="modalPanel">
             <div>
@@ -167,370 +345,7 @@
                     <h2 class="text-lg font-bold text-white" id="modalTitle">Update Progres Cabang</h2>
                     <button onclick="closeModal()" class="text-gray-400 hover:text-red-500 text-2xl font-semibold cursor-pointer">&times;</button>
                 </div>
-
                 <form id="updateForm" class="space-y-4">
                     <input type="hidden" id="modalIdAjuan">
-                    
                     <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1" data-id="Tahap Progress Saat Ini" data-en="Current Progress Stage">Tahap Progress Saat Ini</label>
-                        <select id="modalStatusSelect" class="w-full border border-gray-800 p-2.5 rounded-lg text-sm bg-[#0F0F0F] text-white focus:ring-2 focus:ring-red-600" onchange="handleStatusChange(this.value)">
-                            <!-- Option text dinamis ditangani oleh js saat render modal -->
-                        </select>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1" data-id="📅 Tanggal Progres Terjadi" data-en="📅 Progress Date">📅 Tanggal Progres Terjadi</label>
-                        <input type="date" id="modalTglProgres" class="w-full border border-gray-800 p-2.5 rounded-lg text-sm bg-[#0F0F0F] text-white focus:ring-2 focus:ring-red-600">
-                    </div>
-
-                    <!-- Dynamic File Upload Group -->
-                    <div id="fileUploadGroup" class="hidden p-4 bg-red-950/20 border border-red-900/50 rounded-lg space-y-2">
-                        <label id="fileLabel" class="block text-xs font-bold text-red-400 uppercase tracking-wider">📁 Dokumen Lampiran</label>
-                        <input type="file" id="modalFile" class="text-xs text-gray-400 block w-full file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-xs file:font-bold file:bg-red-600 file:text-white file:hover:bg-red-700 cursor-pointer">
-                        <p id="fileHelpText" class="text-[11px] text-gray-500 mt-1"></p>
-                    </div>
-
-                    <!-- Catatan Tambahan -->
-                    <div>
-                        <label class="text-xs font-bold text-gray-400 block mb-1 uppercase" data-id="📝 Catatan Tambahan / Hasil Diskusi" data-en="📝 Additional Notes / Discussion Results">📝 Catatan Tambahan / Hasil Diskusi</label>
-                        <textarea id="noteTambahan" rows="4" class="w-full border border-gray-800 bg-[#0F0F0F] text-white rounded-md p-2 text-xs focus:ring-2 focus:ring-red-600" placeholder="..."></textarea>
-                    </div>
-                </form>
-            </div>
-
-            <div class="border-t border-gray-800 pt-4 mt-6 flex gap-2">
-                <button onclick="submitUpdate()" id="btnSimpan" type="button" class="w-full bg-red-600 text-white text-sm font-semibold py-2.5 rounded-lg hover:bg-red-700 shadow-md transition cursor-pointer" data-id="Simpan Perubahan" data-en="Save Changes">Simpan Perubahan</button>
-                <button onclick="closeModal()" class="w-32 bg-[#0F0F0F] border border-gray-800 text-gray-400 text-sm font-semibold py-2.5 rounded-lg hover:bg-gray-800 transition cursor-pointer" data-id="Batal" data-en="Cancel">Batal</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- JAVASCRIPT LOGIC WITH LANGUAGE SWITCHER & MOCK DATA -->
-    <script>
-        let masterData = [];
-        let currentFilter = 'ALL';
-        let currentLang = 'id'; // Bahasa Default
-
-        // Kamus Bahasa khusus untuk data dinamis dari JavaScript
-        const languagePack = {
-            id: {
-                searchPlaceholder: "Cari nama cabang, gedung, atau kota...",
-                overdue: "⚠️ Lewat {x} Hari",
-                critical: "🚨 H-{x} Hari",
-                safe: "H-{x} Hari",
-                emptyTable: "Tidak ada ajuan cabang ditemukan.",
-                syncText: "Menyinkronkan ke Spreadsheet Tiruan...",
-                alertDate: "⚠️ Silakan isi Tanggal Progres terlebih dahulu!",
-                alertFile: "⚠️ Proteksi Sistem: Wajib melampirkan berkas Dokumen Draft Akta untuk tahap ini!",
-                alertSuccess: "🎉 Simulasi Berhasil! Data Berhasil Diperbarui di UI Dashboard.",
-                btnUpdate: "Update",
-                labelUploadGeneral: "📁 Berkas Lampiran Umum (KTP, NPWP, Berkas Pendukung)",
-                helpUploadGeneral: "Menerima semua jenis ekstensi file berkas. Maksimal ukuran file: 35MB.",
-                labelUploadPdf: "📁 Dokumen Resmi Draft Akta / Sewa",
-                helpUploadPdf: "Proteksi Sistem: Hanya menerima ekstensi .pdf / Gambar. Maksimal: 5MB."
-            },
-            en: {
-                searchPlaceholder: "Search branch name, building, or city...",
-                overdue: "⚠️ Overdue by {x} Days",
-                critical: "🚨 Critical: {x} Days Left",
-                safe: "{x} Days Left",
-                emptyTable: "No branch submissions found.",
-                syncText: "Syncing to Mock Spreadsheet...",
-                alertDate: "⚠️ Please fill in the Progress Date first!",
-                alertFile: "⚠️ System Protection: Attaching the Draft Deed Document is required for this stage!",
-                alertSuccess: "🎉 Simulation Successful! Data successfully updated in the Dashboard UI.",
-                btnUpdate: "Update",
-                labelUploadGeneral: "📁 General Attachment Files (ID Card, Tax ID, Supporting Docs)",
-                helpUploadGeneral: "Accepts all file extensions. Maximum file size: 35MB.",
-                labelUploadPdf: "📁 Official Draft Deed / Lease Document",
-                helpUploadPdf: "System Protection: Only accepts .pdf / Image extensions. Max size: 5MB."
-            }
-        };
-
-        window.addEventListener('DOMContentLoaded', () => {
-            fetchDatabaseSimulation();
-            switchLang('id');
-        });
-
-        // FUNGSI UTAMA PENGGANTI BAHASA (LANGUAGE SWITCHER)
-        function switchLang(lang) {
-            currentLang = lang;
-            
-            // Toggle Desain Tombol Aktif
-            if(lang === 'id') {
-                document.getElementById('btn-lang-id').className = "px-3 py-1.5 text-xs font-bold rounded cursor-pointer transition-all bg-red-600 text-white";
-                document.getElementById('btn-lang-en').className = "px-3 py-1.5 text-xs font-bold rounded cursor-pointer transition-all text-gray-400 hover:text-white";
-            } else {
-                document.getElementById('btn-lang-en').className = "px-3 py-1.5 text-xs font-bold rounded cursor-pointer transition-all bg-red-600 text-white";
-                document.getElementById('btn-lang-id').className = "px-3 py-1.5 text-xs font-bold rounded cursor-pointer transition-all text-gray-400 hover:text-white";
-            }
-
-            // Ganti Semua Element Ber-Atribut data-id dan data-en
-            document.querySelectorAll('[data-id]').forEach(el => {
-                el.innerHTML = el.getAttribute(`data-${lang}`);
-            });
-
-            // Ganti Placeholder Input Pencarian
-            document.getElementById('searchBar').placeholder = languagePack[lang].searchPlaceholder;
-
-            renderTable();
-        }
-
-        async function fetchDatabaseSimulation() {
-            try {
-                await new Promise(resolve => setTimeout(resolve, 300)); 
-                masterData = [
-                    {
-                        "ID Ajuan": "REQ-2027-001",
-                        "CABANG2": "Cabang Bandung Merdeka",
-                        "NAMA GEDUNG": "Wisma Asia Lt. 3",
-                        "Kota": "Bandung",
-                        "MASA AKHIR SEWA": "2026-08-15", 
-                        "TAHAP_ID": "TAHAP 01 - BELUM LENGKAP",
-                        "TAHAP_EN": "STAGE 01 - INCOMPLETE",
-                        "Catatan_ID": "Menunggu konfirmasi penyesuaian harga sewa baru.",
-                        "Catatan_EN": "Awaiting confirmation on the new lease price adjustment."
-                    },
-                    {
-                        "ID Ajuan": "REQ-2027-002",
-                        "CABANG2": "Cabang Jakarta Sudirman",
-                        "NAMA GEDUNG": "Menara Sudirman Kav 21",
-                        "Kota": "Jakarta",
-                        "MASA AKHIR SEWA": "2026-05-01", 
-                        "TAHAP_ID": "TAHAP 00 - BELUM PENGAJUAN",
-                        "TAHAP_EN": "STAGE 00 - NOT YET SUBMITTED",
-                        "Catatan_ID": "Berkas administrasi masih dalam peninjauan regional.",
-                        "Catatan_EN": "Administrative files are still under regional review."
-                    },
-                    {
-                        "ID Ajuan": "REQ-2027-003",
-                        "CABANG2": "Cabang Surabaya Tengah",
-                        "NAMA GEDUNG": "Gedung Graha Pena H-4",
-                        "Kota": "Surabaya",
-                        "MASA AKHIR SEWA": "2027-12-31", 
-                        "TAHAP_ID": "TAHAP 11A - TUNTAS",
-                        "TAHAP_EN": "STAGE 11A - COMPLETED",
-                        "Catatan_ID": "Sewa resmi diperpanjang, berkas akta selesai ditandatangani.",
-                        "Catatan_EN": "Lease officially extended, deed document fully signed."
-                    }
-                ];
-                calculateStats();
-                renderTable();
-            } catch (err) {
-                console.error(err);
-            }
-        }
-
-        function calculateStats() {
-            document.getElementById('statTotal').innerText = masterData.length;
-            const belum = masterData.filter(d => d.TAHAP_ID && d.TAHAP_ID.includes("TAHAP 00")).length;
-            document.getElementById('statBelum').innerText = belum;
-            document.getElementById('statProses').innerText = masterData.length - belum;
-        }
-
-        function hitungDeadline(tglSewaStr) {
-            if (!tglSewaStr || tglSewaStr === '-') return { teks: '-', kelas: 'text-gray-500' };
-            
-            const tglSewa = new Date(tglSewaStr);
-            const hariIni = new Date();
-            tglSewa.setHours(0,0,0,0);
-            hariIni.setHours(0,0,0,0);
-            
-            const selisihWaktu = tglSewa.getTime() - hariIni.getTime();
-            const selisihHari = Math.ceil(selisihWaktu / (1000 * 60 * 60 * 24));
-            const pack = languagePack[currentLang];
-            
-            if (selisihHari < 0) {
-                return { teks: pack.overdue.replace("{x}", Math.abs(selisihHari)), kelas: 'text-red-500 font-bold bg-red-950/40 px-2 py-0.5 rounded border border-red-900/50' };
-            } else if (selisihHari <= 90) {
-                return { teks: pack.critical.replace("{x}", selisihHari), kelas: 'text-amber-500 font-bold bg-amber-950/40 px-2 py-0.5 rounded border border-amber-900/50' };
-            } else {
-                return { teks: pack.safe.replace("{x}", selisihHari), kelas: 'text-green-500 font-medium bg-green-950/40 px-2 py-0.5 rounded border border-green-900/50' };
-            }
-        }
-
-        function renderTable() {
-            const tbody = document.getElementById('tableBody');
-            if(!tbody) return;
-            const searchTxt = document.getElementById('searchBar').value.toLowerCase();
-            tbody.innerHTML = '';
-
-            let filtered = masterData.filter(item => {
-                const matchesSearch = (item.CABANG2 && item.CABANG2.toLowerCase().includes(searchTxt)) || 
-                                      (item["NAMA GEDUNG"] && item["NAMA GEDUNG"].toLowerCase().includes(searchTxt)) ||
-                                      (item.Kota && item.Kota.toLowerCase().includes(searchTxt));
-                
-                if (currentFilter === 'TAHAP 00') {
-                    return matchesSearch && item.TAHAP_ID && item.TAHAP_ID.includes("TAHAP 00");
-                } else if (currentFilter === 'PROSES') {
-                    return matchesSearch && item.TAHAP_ID && !item.TAHAP_ID.includes("TAHAP 00");
-                }
-                return matchesSearch;
-            });
-
-            if(filtered.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="8" class="p-8 text-center text-gray-500">${languagePack[currentLang].emptyTable}</td></tr>`;
-                return;
-            }
-
-            filtered.forEach(item => {
-                const isBelum = item.TAHAP_ID && item.TAHAP_ID.includes("TAHAP 00");
-                const tahapTeks = currentLang === 'id' ? item.TAHAP_ID : item.TAHAP_EN;
-                
-                const statusBadge = isBelum 
-                    ? `<span class="bg-amber-950/50 text-amber-500 text-xs px-2.5 py-1 rounded-md border border-amber-900/30 font-semibold">${tahapTeks}</span>`
-                    : `<span class="bg-red-950/50 text-red-400 text-xs px-2.5 py-1 rounded-md border border-red-900/30 font-semibold">${tahapTeks || 'Kosong'}</span>`;
-
-                const tglSewaRaw = item["MASA AKHIR SEWA"] || '-';
-                const ews = hitungDeadline(tglSewaRaw);
-
-                tbody.innerHTML += `
-                    <tr class="hover:bg-gray-800/30 transition border-b border-gray-800">
-                        <td class="p-4 font-mono text-xs text-gray-500">${item["ID Ajuan"]}</td>
-                        <td class="p-4 font-bold text-white">${item.CABANG2}</td>
-                        <td class="p-4 text-gray-400">${item["NAMA GEDUNG"]}</td>
-                        <td class="p-4 text-gray-400">${item.Kota}</td>
-                        <td class="p-4 font-medium">${tglSewaRaw}</td>
-                        <td class="p-4 text-xs">${ews.teks !== '-' ? `<span class="${ews.kelas}">${ews.teks}</span>` : '-'}</td>
-                        <td class="p-4">${statusBadge}</td>
-                        <td class="p-4 text-center">
-                            <button onclick="openModal('${item["ID Ajuan"]}')" class="bg-[#0F0F0F] border border-gray-800 text-gray-300 hover:border-red-600 px-3 py-1.5 rounded-md text-xs font-bold cursor-pointer transition-all">${languagePack[currentLang].btnUpdate}</button>
-                        </td>
-                    </tr>
-                `;
-            });
-        }
-
-        document.getElementById('searchBar').addEventListener('input', renderTable);
-
-        function filterData(type) {
-            currentFilter = type;
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('bg-red-600', 'text-white');
-                btn.classList.add('bg-[#0F0F0F]', 'text-gray-400', 'border-gray-800');
-            });
-            event.target.classList.add('bg-red-600', 'text-white');
-            event.target.classList.remove('bg-[#0F0F0F]', 'text-gray-400', 'border-gray-800');
-            renderTable();
-        }
-
-        function handleStatusChange(val) {
-            const group = document.getElementById('fileUploadGroup');
-            const fileInput = document.getElementById('modalFile');
-            const label = document.getElementById('fileLabel');
-            const helpText = document.getElementById('fileHelpText');
-            const pack = languagePack[currentLang];
-
-            if (val.includes("TAHAP 01")) {
-                group.classList.remove('hidden');
-                fileInput.removeAttribute('accept'); 
-                label.innerText = pack.labelUploadGeneral;
-                helpText.innerText = pack.helpUploadGeneral;
-            } else if (val.includes("TAHAP 08")) {
-                group.classList.remove('hidden');
-                fileInput.setAttribute('accept', '.pdf,image/*'); 
-                label.innerText = pack.labelUploadPdf;
-                helpText.innerText = pack.helpUploadPdf;
-            } else {
-                group.classList.add('hidden');
-                fileInput.value = "";
-            }
-        }
-
-        function openModal(idAjuan) {
-            const item = masterData.find(d => d["ID Ajuan"] == idAjuan);
-            if(!item) return;
-
-            document.getElementById('modalIdAjuan').value = idAjuan;
-            document.getElementById('modalTitle').innerText = `Update: ${item.CABANG2}`;
-            
-            // Render Dropdown Berdasarkan Bahasa Pilihan
-            const select = document.getElementById('modalStatusSelect');
-            if(currentLang === 'id') {
-                select.innerHTML = `
-                    <option value="TAHAP 00 - BELUM PENGAJUAN">TAHAP 00 - BELUM PENGAJUAN</option>
-                    <option value="TAHAP 01 - BELUM LENGKAP">TAHAP 01 - BELUM LENGKAP (Upload Berkas Umum)</option>
-                    <option value="TAHAP 08 - PEMBUATAN DRAFT AKTA SEWA">TAHAP 08 - DRAFT AKTA SEWA (Proteksi Khusus PDF)</option>
-                    <option value="TAHAP 11A - TUNTAS">TAHAP 11A - TUNTAS</option>
-                `;
-                select.value = item.TAHAP_ID;
-                document.getElementById('noteTambahan').value = item.Catatan_ID || "";
-                document.getElementById('noteTambahan').placeholder = "Masukkan poin hasil pembahasan di sini...";
-            } else {
-                select.innerHTML = `
-                    <option value="TAHAP 00 - BELUM PENGAJUAN">STAGE 00 - NOT YET SUBMITTED</option>
-                    <option value="TAHAP 01 - BELUM LENGKAP">STAGE 01 - INCOMPLETE (General Upload)</option>
-                    <option value="TAHAP 08 - PEMBUATAN DRAFT AKTA SEWA">STAGE 08 - DRAFT LEASE DEED (PDF Protection)</option>
-                    <option value="TAHAP 11A - TUNTAS">STAGE 11A - COMPLETED</option>
-                `;
-                select.value = item.TAHAP_ID; // value tetap disinkronkan pakai ID utama
-                document.getElementById('noteTambahan').value = item.Catatan_EN || "";
-                document.getElementById('noteTambahan').placeholder = "Enter discussion points here...";
-            }
-            
-            const hariIni = new Date().toISOString().split('T')[0];
-            document.getElementById('modalTglProgres').value = hariIni;
-
-            handleStatusChange(select.value);
-
-            document.getElementById('updateModal').classList.remove('opacity-0', 'pointer-events-none');
-            document.getElementById('modalPanel').classList.remove('translate-x-full');
-            document.body.classList.add('modal-active');
-        }
-
-        function closeModal() {
-            document.getElementById('updateModal').classList.add('opacity-0', 'pointer-events-none');
-            document.getElementById('modalPanel').classList.add('translate-x-full');
-            document.body.classList.remove('modal-active');
-            document.getElementById('updateForm').reset();
-        }
-
-        function submitUpdate() {
-            const idAjuan = document.getElementById('modalIdAjuan').value;
-            const status = document.getElementById('modalStatusSelect').value;
-            const tglProgres = document.getElementById('modalTglProgres').value;
-            const fileInput = document.getElementById('modalFile');
-            const btn = document.getElementById('btnSimpan');
-            const pack = languagePack[currentLang];
-
-            if (!tglProgres) {
-                alert(pack.alertDate);
-                return;
-            }
-
-            if (status.includes("TAHAP 08") && fileInput.files.length === 0) {
-                alert(pack.alertFile);
-                return;
-            }
-
-            btn.innerText = pack.syncText;
-            btn.disabled = true;
-
-            setTimeout(() => {
-                const dataIndex = masterData.findIndex(d => d["ID Ajuan"] == idAjuan);
-                if(dataIndex !== -1) {
-                    masterData[dataIndex].TAHAP_ID = status;
-                    
-                    // Otomatisasi map balik translasi state data internal demi portofolio
-                    if(status.includes("TAHAP 00")) masterData[dataIndex].TAHAP_EN = "STAGE 00 - NOT YET SUBMITTED";
-                    else if(status.includes("TAHAP 01")) masterData[dataIndex].TAHAP_EN = "STAGE 01 - INCOMPLETE";
-                    else if(status.includes("TAHAP 08")) masterData[dataIndex].TAHAP_EN = "STAGE 08 - DRAFT LEASE DEED";
-                    else if(status.includes("TAHAP 11A")) masterData[dataIndex].TAHAP_EN = "STAGE 11A - COMPLETED";
-
-                    if(currentLang === 'id') {
-                        masterData[dataIndex].Catatan_ID = document.getElementById('noteTambahan').value;
-                    } else {
-                        masterData[dataIndex].Catatan_EN = document.getElementById('noteTambahan').value;
-                    }
-                }
-
-                alert(pack.alertSuccess);
-                btn.disabled = false;
-                closeModal();
-                calculateStats();
-                renderTable();
-            }, 800);
-        }
-    </script>
-</body>
-</html>
+                        <label class="block text-xs font-bold text

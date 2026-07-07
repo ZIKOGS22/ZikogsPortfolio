@@ -625,11 +625,26 @@
             };
         });
 
-        // INISIALISASI AWAL JALAN
-        window.addEventListener('DOMContentLoaded', () => {
-            fetchDatabaseSimulation();
-            switchLang('id');
-        });
+        // INISIALISASI AWAL (AUTO-RESET SAAT REFRESH)
+window.addEventListener('DOMContentLoaded', () => {
+    // 1. Reset Semua Input Form
+    document.getElementById('order-form').reset();
+    document.getElementById('searchBar').value = '';
+    
+    // 2. Reset Canvas ke Kondisi Awal
+    const movableImg = document.getElementById('movable-img');
+    movableImg.classList.add('hidden'); // Sembunyikan gambar
+    movableImg.src = '';
+    document.getElementById('size-slider').value = 50; // Reset slider
+    document.getElementById('size-val').innerText = '50';
+    
+    // 3. Reset Filter EWS ke Default (ALL)
+    currentFilter = 'ALL';
+    
+    // 4. Jalankan Fungsi Utama
+    fetchDatabaseSimulation();
+    switchLang('id'); // Default bahasa ke Indonesia
+});
     </script>
 </body>
 </html>

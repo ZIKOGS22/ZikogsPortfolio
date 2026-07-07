@@ -78,7 +78,7 @@
                 <div class="flex flex-wrap gap-4 pt-2">
                     <!-- TOMBOL DETAIL/KNOW ME MORE YANG INTERAKTIF -->
                     <button onclick="toggleCVSection()" id="btn-toggle-cv" class="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-red-600/20 transition-all duration-300 cursor-pointer">
-                        <i class="fas fa-id-card mr-2"></i><span data-id="Know Me More / Detail CV" data-en="Know Me More / CV Details">Know Me More / Detail CV</span>
+                        <i class="fas fa-id-card mr-2"></i><span id="txt-btn-cv" data-id="Know Me More / Detail CV" data-en="Know Me More / CV Details">Know Me More / Detail CV</span>
                     </button>
                     <a href="#demo-live" class="border border-gray-700 hover:border-red-600 px-6 py-3 rounded-lg text-gray-300 hover:text-white transition-all duration-300" data-id="Sistem Kontrol EWS" data-en="EWS Control System">
                         Sistem Kontrol EWS
@@ -92,7 +92,7 @@
         </div>
     </section>
 
-    <!-- SECTION 1B: HIDDEN DETAILED FORMAL CV (AKAN MUNCUL SAAT TOMBOL DIKLIK) -->
+    <!-- SECTION 1B: HIDDEN DETAILED FORMAL CV -->
     <section id="cv-detailed-section" class="max-w-6xl mx-auto px-6 py-0 max-h-0 overflow-hidden opacity-0 transition-all duration-500">
         <div class="bg-[#141416] border border-gray-800 rounded-2xl p-6 md:p-8 space-y-8 shadow-2xl">
             
@@ -191,10 +191,10 @@
                             <span class="text-xs font-mono text-gray-500 bg-[#0F0F0F] px-2 py-0.5 rounded border border-gray-800">2019 - 2020</span>
                         </div>
                         <ul class="list-disc list-inside text-xs text-gray-400 mt-2 space-y-1 pl-1"
-                            data-id="<li>Mengelola fungsi rekrutmen end-to-end dan strategi akuisisi talenta untuk pertumbuhan organisasi.</li><li>Memelopori pengembangan dan optimalisasi Human Resources Information System (HRIS) demi merampingkan pengelolaan data karyawan.</li><li>Berkolaborasi dengan tim lintas fungsi untuk menyelaraskan sistem HR dengan kebutuhan operasional perusahaan.</li>"
+                            data-id="<li>Mengelola fungsi rekrutmen end-to-end dan strategi akuisisi talenta untuk pertumbuhan organisasi.</li><li>Memelopori pengembangan dan otomatisasi Human Resources Information System (HRIS) demi merampingkan pengelolaan data karyawan.</li><li>Berkolaborasi dengan tim lintas fungsi untuk menyelaraskan sistem HR dengan kebutuhan operasional perusahaan.</li>"
                             data-en="<li>Managed end-to-end recruitment functions and talent acquisition strategies for organizational growth.</li><li>Spearheaded the development and optimization of the Human Resources Information System (HRIS) to streamline employee data management.</li><li>Collaborated with cross-functional teams to align HR systems with corporate operational needs.</li>">
                             <li>Mengelola fungsi rekrutmen end-to-end dan strategi akuisisi talenta untuk pertumbuhan organisasi.</li>
-                            <li>Memelopori pengembangan dan optimalisasi Human Resources Information System (HRIS) demi merampingkan pengelolaan data karyawan.</li>
+                            <li>Memelopori pengembangan dan otomatisasi Human Resources Information System (HRIS) demi merampingkan pengelolaan data karyawan.</li>
                             <li>Berkolaborasi dengan tim lintas fungsi untuk menyelaraskan sistem HR dengan kebutuhan operasional perusahaan.</li>
                         </ul>
                     </div>
@@ -298,12 +298,12 @@
 
         <div class="bg-[#141416] p-4 rounded-xl border border-gray-800 flex flex-wrap gap-3 items-center justify-between">
             <div class="flex items-center gap-2 w-full md:w-auto">
-                <input type="text" id="searchBar" placeholder="Cari nama cabang, gedung, atau kota..." class="w-full md:w-80 px-4 py-2 bg-[#0F0F0F] border border-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 text-sm text-white">
+                <input type="text" id="searchBar" onkeyup="renderTable()" placeholder="Cari nama cabang, gedung, atau kota..." class="w-full md:w-80 px-4 py-2 bg-[#0F0F0F] border border-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 text-sm text-white">
             </div>
             <div class="flex gap-2 overflow-x-auto w-full md:w-auto">
-                <button onclick="filterData('ALL')" class="filter-btn px-4 py-2 text-xs font-bold uppercase bg-red-600 text-white rounded-lg shadow-md cursor-pointer" data-id="Semua" data-en="All">Semua</button>
-                <button onclick="filterData('TAHAP 00')" class="filter-btn px-4 py-2 text-xs font-bold uppercase bg-[#0F0F0F] text-gray-400 border border-gray-800 rounded-lg hover:bg-gray-800 cursor-pointer" data-id="Belum Ajuan" data-en="Unsubmitted">Belum Ajuan</button>
-                <button onclick="filterData('PROSES')" class="filter-btn px-4 py-2 text-xs font-bold uppercase bg-[#0F0F0F] text-gray-400 border border-gray-800 rounded-lg hover:bg-gray-800 cursor-pointer" data-id="Sedang Berjalan" data-en="In Progress">Sedang Berjalan</button>
+                <button onclick="filterData('ALL')" id="filter-all" class="filter-btn px-4 py-2 text-xs font-bold uppercase bg-red-600 text-white rounded-lg shadow-md cursor-pointer" data-id="Semua" data-en="All">Semua</button>
+                <button onclick="filterData('TAHAP 00')" id="filter-tahap00" class="filter-btn px-4 py-2 text-xs font-bold uppercase bg-[#0F0F0F] text-gray-400 border border-gray-800 rounded-lg hover:bg-gray-800 cursor-pointer" data-id="Belum Ajuan" data-en="Unsubmitted">Belum Ajuan</button>
+                <button onclick="filterData('PROSES')" id="filter-proses" class="filter-btn px-4 py-2 text-xs font-bold uppercase bg-[#0F0F0F] text-gray-400 border border-gray-800 rounded-lg hover:bg-gray-800 cursor-pointer" data-id="Sedang Berjalan" data-en="In Progress">Sedang Berjalan</button>
             </div>
         </div>
 
@@ -344,12 +344,11 @@
                 <h2 class="text-2xl font-bold text-white" data-id="Demo 02: Interactive Canvas & Order Processing Engine" data-en="Demo 02: Interactive Canvas & Order Processing Engine">Demo 02: Interactive Canvas & Order Processing Engine</h2>
                 <p class="text-sm text-gray-400 mt-1" data-id="Modul E-Commerce Custom Pre-Order Terintegrasi Dengan Google Apps Script & Klien WA." data-en="Custom Pre-Order E-Commerce Module Integrated with Google Apps Script & WA Client API.">Modul E-Commerce Custom Pre-Order Terintegrasi Dengan Google Apps Script & Klien WA.</p>
             </div>
-            <button onclick="bukaLoginAdmin()" class="text-xs bg-[#141416] border border-gray-800 text-gray-400 hover:text-red-500 font-mono px-3 py-1.5 rounded-lg transition cursor-pointer">
+            <button type="button" class="text-xs bg-[#141416] border border-gray-800 text-gray-400 hover:text-red-500 font-mono px-3 py-1.5 rounded-lg transition cursor-pointer">
                 <i class="fas fa-tools mr-1"></i>Admin Area
             </button>
         </div>
 
-        <!-- Bagian Canvas & Form Custom Order Sama Seperti Kode Sebelumnya (Dipertahankan Penuh) -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div class="lg:col-span-7 bg-[#141416] p-6 rounded-2xl border border-gray-800 flex flex-col items-center">
                 <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4" data-id="Pratinjau Kanvas Interaktif" data-en="Interactive Canvas Preview">Pratinjau Kanvas Interaktif</h3>
@@ -370,16 +369,6 @@
                             <span class="text-sm leading-none">💡</span>
                             <span data-id="<strong>Catatan:</strong> Gambar dan warna t-shirt asli akan disesuaikan kembali dan dikonfirmasi via WhatsApp." data-en="<strong>Note:</strong> Original artwork and t-shirt color will be re-adjusted and confirmed via WhatsApp."><strong>Catatan:</strong> Gambar dan warna t-shirt asli akan disesuaikan kembali dan dikonfirmasi via WhatsApp.</span>
                         </p>
-                    </div>
-                    <div class="flex flex-col items-center pt-2">
-                        <span class="text-xs font-semibold text-gray-500 mb-2">Nudge Posisi Presisi</span>
-                        <div class="grid grid-cols-3 gap-2 w-36">
-                            <div></div><button onclick="moveImage('up')" class="p-2 bg-[#0F0F0F] border border-gray-800 rounded-lg text-white">↑</button><div></div>
-                            <button onclick="moveImage('left')" class="p-2 bg-[#0F0F0F] border border-gray-800 rounded-lg text-white">←</button>
-                            <button onclick="resetPosition()" class="p-2 bg-gray-800 rounded-lg text-[10px] text-gray-300">Reset</button>
-                            <button onclick="moveImage('right')" class="p-2 bg-[#0F0F0F] border border-gray-800 rounded-lg text-white">→</button>
-                            <div></div><button onclick="moveImage('down')" class="p-2 bg-[#0F0F0F] border border-gray-800 rounded-lg text-white">↓</button><div></div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -415,166 +404,184 @@
                             <select id="warna" class="w-full px-3 py-2.5 bg-[#0F0F0F] text-white rounded-xl border border-gray-800 text-sm outline-none">
                                 <option value="black">Hitam</option>
                                 <option value="white">Putih</option>
-                                <option value="navy">Navy</option>
-                                <option value="custom">Custom Warna (+Rp 20.000)</option>
                             </select>
-                        </div>
-                    </div>
-                    <div id="custom-warna-container" class="hidden">
-                        <input type="text" id="custom-warna-input" class="w-full px-4 py-2 bg-[#0F0F0F] text-white border border-gray-800 rounded-xl text-xs outline-none">
-                    </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <div class="flex items-center gap-1.5 mb-1">
-                                <label class="block text-xs font-bold text-gray-400 uppercase">Ukuran Baju</label>
-                                <button type="button" onclick="bukaSizeChart()" class="text-[10px] bg-gray-800 text-white w-4 h-4 rounded-full flex items-center justify-center font-bold">?</button>
-                            </div>
-                            <select id="ukuran" class="w-full px-3 py-2.5 bg-[#0F0F0F] text-white rounded-xl border border-gray-800 text-sm">
-                                <option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option><option value="XXL">XXL</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">File Mentah HD</label>
-                            <input type="file" id="client-file-input" class="w-full text-xs text-gray-500 pt-1">
                         </div>
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Upload Gambar Coretan</label>
                         <input type="file" id="file-input" accept="image/*" required class="w-full text-xs text-gray-400 file:py-2 file:px-3 file:rounded-lg file:border-0 file:bg-red-950 file:text-red-400">
                     </div>
-                    <div class="p-4 bg-[#0F0F0F] rounded-xl border border-gray-800 space-y-1">
-                        <div class="flex justify-between items-center text-xs">
-                            <span class="text-white font-bold">Total Estimasi Biaya:</span>
-                            <span id="price-tag-total" class="font-black text-red-500 text-base">Rp 135,000</span>
-                        </div>
-                    </div>
-                    <button type="submit" class="w-full py-3 bg-red-600 text-white font-bold text-sm rounded-xl">Simpan Desain & Hubungi Admin</button>
+                    <button type="submit" class="w-full py-3 bg-red-600 text-white font-bold text-sm rounded-xl cursor-pointer">Simpan Desain & Hubungi Admin</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- MODAL PANDUAN UKURAN (SIZE CHART TABLE) -->
-    <div id="size-chart-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-[#141416] border border-gray-800 rounded-2xl max-w-md w-full p-5 space-y-4">
-            <div class="flex justify-between items-center border-b border-gray-800 pb-2">
-                <h3 class="text-sm font-bold text-white flex items-center gap-2"><span>📏</span> <span>Panduan Standar Ukuran T-Shirt</span></h3>
-                <button type="button" onclick="tutupModal('size-chart-modal')" class="text-gray-400 hover:text-red-500 font-bold">✕</button>
-            </div>
-            <div class="w-full border border-gray-800 bg-[#0F0F0F] rounded-xl p-4">
-                <table class="w-full text-xs text-left text-gray-400">
-                    <thead><tr class="border-b border-gray-800 text-white"><th class="py-1">Size</th><th class="py-1">Width (cm)</th><th class="py-1">Length (cm)</th></tr></thead>
-                    <tbody>
-                        <tr class="border-b border-gray-800/50"><td>S</td><td>47</td><td>67</td></tr>
-                        <tr class="border-b border-gray-800/50"><td>M</td><td>50</td><td>70</td></tr>
-                        <tr class="border-b border-gray-800/50"><td>L</td><td>53</td><td>73</td></tr>
-                        <tr class="border-b border-gray-800/50"><td>XL</td><td>56</td><td>75</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODALS LAINNYA & SCRIPTS -->
-    <div id="admin-login-modal" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"></div>
+    <!-- MODAL NOTIFIKASI SUKSES -->
     <div id="success-modal" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
         <div class="bg-[#141416] border border-gray-800 rounded-2xl max-w-sm w-full p-6 text-center space-y-4">
             <div class="w-12 h-12 bg-green-950 text-green-500 rounded-full flex items-center justify-center mx-auto text-xl font-bold">✓</div>
             <h3 class="text-lg font-bold text-white">Pesanan Berhasil!</h3>
             <p id="modal-order-id" class="font-mono text-red-500 font-bold"></p>
-            <button id="btn-wa" class="w-full py-2.5 bg-green-600 text-white font-bold text-xs rounded-xl">Kirim Ke WhatsApp</button>
+            <button id="btn-wa" class="w-full py-2.5 bg-green-600 text-white font-bold text-xs rounded-xl cursor-pointer">Kirim Ke WhatsApp</button>
         </div>
     </div>
 
+    <!-- MAIN JAVASCRIPT LOGIC -->
     <script>
-        // TOGGLE LOGIC UNTUK DETAIL CV DROPDOWN
+        let masterData = [];
+        let currentFilter = 'ALL';
+        let currentLang = 'id';
         let isCVOpen = false;
+
+        // 1. DATA DATABASE SIMULASI EWS (DENGAN KATA KUNCI BAHASA)
+        function fetchDatabaseSimulation() {
+            masterData = [
+                { "ID Ajuan": "REQ-2027-001", "CABANG2": "Cabang Bandung Merdeka", "NAMA GEDUNG": "Wisma Asia Lt. 3", "Kota": "Bandung", "MASA AKHIR SEWA": "2026-08-15", "TAHAP_ID": "TAHAP 01 - PROSES DOKUMEN", "TAHAP_EN": "STAGE 01 - IN PROGRESS", "FILTER_STATUS": "PROSES" },
+                { "ID Ajuan": "REQ-2027-002", "CABANG2": "Cabang Jakarta Sudirman", "NAMA GEDUNG": "Menara Sudirman Kav 21", "Kota": "Jakarta", "MASA AKHIR SEWA": "2026-05-01", "TAHAP_ID": "TAHAP 00 - BELUM PENGAJUAN", "TAHAP_EN": "STAGE 00 - NOT YET SUBMITTED", "FILTER_STATUS": "TAHAP 00" },
+                { "ID Ajuan": "REQ-2027-003", "CABANG2": "Cabang Surabaya Gubeng", "NAMA GEDUNG": "Gubeng Plaza lt 1", "Kota": "Surabaya", "MASA AKHIR SEWA": "2026-12-10", "TAHAP_ID": "TAHAP 01 - PROSES NEGOSIASI", "TAHAP_EN": "STAGE 01 - IN NEGOTIATION", "FILTER_STATUS": "PROSES" }
+            ];
+            hitungStatistik();
+            renderTable();
+        }
+
+        // 2. TOGGLE DROPDOWN DETAIL CV FORMAL
         function toggleCVSection() {
             const cvSection = document.getElementById('cv-detailed-section');
-            const btn = document.getElementById('btn-toggle-cv');
+            const btnLabel = document.getElementById('txt-btn-cv');
             isCVOpen = !isCVOpen;
 
             if (isCVOpen) {
-                cvSection.style.maxHeight = "2000px"; // Memberikan ruang yang cukup untuk merender isi CV
+                cvSection.style.maxHeight = "2500px";
                 cvSection.style.opacity = "1";
                 cvSection.classList.remove('py-0');
                 cvSection.classList.add('py-8');
-                btn.innerHTML = `<i class="fas fa-chevron-up mr-2"></i>Close Details`;
-                // Scroll pelan ke arah data CV agar nyaman dibaca
+                btnLabel.innerText = currentLang === 'id' ? "Tutup Detail CV" : "Close CV Details";
                 cvSection.scrollIntoView({ behavior: 'smooth' });
             } else {
                 cvSection.style.maxHeight = "0px";
                 cvSection.style.opacity = "0";
                 cvSection.classList.remove('py-8');
                 cvSection.classList.add('py-0');
-                btn.innerHTML = `<i class="fas fa-id-card mr-2"></i>Know Me More / Detail CV`;
+                btnLabel.innerText = currentLang === 'id' ? "Know Me More / Detail CV" : "Know Me More / CV Details";
             }
         }
 
-        // SCRIPT LOGIC SIMULASI DASBOR EWS & CANVAS ENGINE (DIJAGA PENUH AGAR TETAP WORK)
-        let masterData = [];
-        let currentFilter = 'ALL';
-        let currentLang = 'id';
-
-        window.addEventListener('DOMContentLoaded', () => {
-            fetchDatabaseSimulation();
-            switchLang('id');
-        });
-
+        // 3. SWITCH BAHASA + PERUBAHAN WARNA TOMBOL AKTIF (FIXED)
         function switchLang(lang) {
             currentLang = lang;
+            
+            // Perubahan Elemen Teks Berdasarkan Atribut Data Atribut
             document.querySelectorAll('[data-id]').forEach(el => {
                 const text = el.getAttribute(`data-${lang}`);
                 if(text) el.innerHTML = text;
             });
+
+            // Perubahan Warna Tombol Bahasa Aktif (ID vs EN)
+            const btnId = document.getElementById('btn-lang-id');
+            const btnEn = document.getElementById('btn-lang-en');
+            
+            if(lang === 'id') {
+                btnId.className = "px-3 py-1.5 text-xs font-bold rounded cursor-pointer transition-all bg-red-600 text-white";
+                btnEn.className = "px-3 py-1.5 text-xs font-bold rounded cursor-pointer transition-all text-gray-400 hover:text-white";
+            } else {
+                btnEn.className = "px-3 py-1.5 text-xs font-bold rounded cursor-pointer transition-all bg-red-600 text-white";
+                btnId.className = "px-3 py-1.5 text-xs font-bold rounded cursor-pointer transition-all text-gray-400 hover:text-white";
+            }
+
+            // Tetap Amankan Label Tombol CV Saat Mengganti Bahasa
+            const btnLabel = document.getElementById('txt-btn-cv');
+            if (isCVOpen) {
+                btnLabel.innerText = lang === 'id' ? "Tutup Detail CV" : "Close CV Details";
+            } else {
+                btnLabel.innerText = lang === 'id' ? "Know Me More / Detail CV" : "Know Me More / CV Details";
+            }
+
             renderTable();
-            updateCanvasBase();
         }
 
-        function fetchDatabaseSimulation() {
-            masterData = [
-                { "ID Ajuan": "REQ-2027-001", "CABANG2": "Cabang Bandung Merdeka", "NAMA GEDUNG": "Wisma Asia Lt. 3", "Kota": "Bandung", "MASA AKHIR SEWA": "2026-08-15", "TAHAP_ID": "TAHAP 01 - BELUM LENGKAP", "TAHAP_EN": "STAGE 01 - INCOMPLETE" },
-                { "ID Ajuan": "REQ-2027-002", "CABANG2": "Cabang Jakarta Sudirman", "NAMA GEDUNG": "Menara Sudirman Kav 21", "Kota": "Jakarta", "MASA AKHIR SEWA": "2026-05-01", "TAHAP_ID": "TAHAP 00 - BELUM PENGAJUAN", "TAHAP_EN": "STAGE 00 - NOT YET SUBMITTED" }
-            ];
+        // 4. HITUNG STATISTIK DI ATAS TABEL EWS
+        function hitungStatistik() {
+            document.getElementById('statTotal').innerText = masterData.length;
+            document.getElementById('statBelum').innerText = masterData.filter(d => d.FILTER_STATUS === 'TAHAP 00').length;
+            document.getElementById('statProses').innerText = masterData.filter(d => d.FILTER_STATUS === 'PROSES').length;
+        }
+
+        // 5. FUNGSI FILTER TOMBOL STATUS TABEL EWS (FIXED & FULLY FUNCTIONAL)
+        function filterData(status) {
+            currentFilter = status;
+            
+            // Ganti Style Warna Tombol Filter yang Aktif
+            const filters = {
+                'ALL': document.getElementById('filter-all'),
+                'TAHAP 00': document.getElementById('filter-tahap00'),
+                'PROSES': document.getElementById('filter-proses')
+            };
+
+            Object.keys(filters).forEach(key => {
+                if (key === status) {
+                    filters[key].className = "filter-btn px-4 py-2 text-xs font-bold uppercase bg-red-600 text-white rounded-lg shadow-md cursor-pointer";
+                } else {
+                    filters[key].className = "filter-btn px-4 py-2 text-xs font-bold uppercase bg-[#0F0F0F] text-gray-400 border border-gray-800 rounded-lg hover:bg-gray-800 cursor-pointer";
+                }
+            });
+
             renderTable();
         }
 
-        function hitungDeadline(tglSewaStr) {
-            if (!tglSewaStr) return { teks: '-', kelas: '' };
-            return { teks: 'H-30 Hari', kelas: 'text-amber-500 bg-amber-950/40 px-2 py-0.5 rounded' };
-        }
-
+        // 6. RENDER DATA KE DALAM TABEL DENGAN REALTIME FILTER & SEARCH
         function renderTable() {
             const tbody = document.getElementById('tableBody');
             if(!tbody) return;
             tbody.innerHTML = '';
-            masterData.forEach(item => {
-                const ews = hitungDeadline(item["MASA AKHIR SEWA"]);
+
+            const searchKeyword = document.getElementById('searchBar').value.toLowerCase();
+
+            // Saring Berdasarkan Filter Status Dan Input kolom Search
+            const dataDisaring = masterData.filter(item => {
+                const cocokStatus = (currentFilter === 'ALL' || item.FILTER_STATUS === currentFilter);
+                const cocokSearch = item.CABANG2.toLowerCase().includes(searchKeyword) || 
+                                    item["NAMA GEDUNG"].toLowerCase().includes(searchKeyword) || 
+                                    item.Kota.toLowerCase().includes(searchKeyword);
+                return cocokStatus && cocokSearch;
+            });
+
+            if(dataDisaring.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="8" class="p-8 text-center text-gray-500">Data tidak ditemukan / No data found</td></tr>`;
+                return;
+            }
+
+            dataDisaring.forEach(item => {
+                const statusTeks = currentLang === 'id' ? item.TAHAP_ID : item.TAHAP_EN;
+                const badgeWarna = item.FILTER_STATUS === 'TAHAP 00' ? 'text-amber-500 bg-amber-950/40 border border-amber-900/30' : 'text-green-500 bg-green-950/40 border border-green-900/30';
+                
                 tbody.innerHTML += `
-                    <tr class="border-b border-gray-800 text-xs">
-                        <td class="p-4">${item["ID Ajuan"]}</td>
+                    <tr class="border-b border-gray-800 text-xs hover:bg-[#141416]/50 transition">
+                        <td class="p-4 font-mono text-gray-400">${item["ID Ajuan"]}</td>
                         <td class="p-4 font-bold text-white">${item.CABANG2}</td>
                         <td class="p-4">${item["NAMA GEDUNG"]}</td>
                         <td class="p-4">${item.Kota}</td>
-                        <td class="p-4">${item["MASA AKHIR SEWA"]}</td>
-                        <td class="p-4"><span class="${ews.kelas}">${ews.teks}</span></td>
-                        <td class="p-4">${item.TAHAP_ID}</td>
-                        <td class="p-4 text-center"><button class="bg-[#0F0F0F] border border-gray-800 px-2 py-1 rounded">Update</button></td>
+                        <td class="p-4 font-mono">${item["MASA AKHIR SEWA"]}</td>
+                        <td class="p-4"><span class="text-red-400 bg-red-950/30 px-2 py-0.5 rounded font-mono">H-30 Hari</span></td>
+                        <td class="p-4"><span class="px-2 py-1 rounded text-[11px] font-semibold ${badgeWarna}">${statusTeks}</span></td>
+                        <td class="p-4 text-center">
+                            <button class="bg-[#0F0F0F] border border-gray-700 hover:border-red-500 text-gray-300 hover:text-white px-2.5 py-1 rounded text-[11px] transition cursor-pointer">Update</button>
+                        </td>
                     </tr>`;
             });
         }
 
+        // 7. CANVAS INTERACTIVE ENGINE LOGIC
         function updateCanvasBase() {
             const baseMockup = document.getElementById('base-mockup');
             const warna = document.getElementById('warna').value;
             if(warna === 'black') baseMockup.parentNode.style.backgroundColor = "#212121";
             if(warna === 'white') baseMockup.parentNode.style.backgroundColor = "#ffffff";
         }
-        document.getElementById('warna').addEventListener('change', updateCanvasBase);
-        function bukaSizeChart() { document.getElementById('size-chart-modal').classList.remove('hidden'); }
-        function tutupModal(id) { document.getElementById(id).classList.add('hidden'); }
 
-        // FILE PREVIEW CANVAS
+        document.getElementById('warna').addEventListener('change', updateCanvasBase);
+
+        // Upload Preview Gambar ke Atas Baju Mockup Canvas
         document.getElementById('file-input').addEventListener('change', function(e) {
             const file = e.target.files[0];
             if (file) {
@@ -583,20 +590,40 @@
                     const movableImg = document.getElementById('movable-img');
                     movableImg.src = event.target.result;
                     movableImg.classList.remove('hidden');
+                    movableImg.style.width = "50%"; // ukuran bawaan awal
                 }
                 reader.readAsDataURL(file);
             }
         });
 
-        // FORM SUBMIT WA
+        // Kontrol Slider Ukuran Gambar Di Atas Mockup
+        document.getElementById('size-slider').addEventListener('input', function(e) {
+            const val = e.target.value;
+            document.getElementById('size-val').innerText = val;
+            const movableImg = document.getElementById('movable-img');
+            if(!movableImg.classList.contains('hidden')) {
+                movableImg.style.width = val + "%";
+            }
+        });
+
+        // Submit Form Pre-Order Coretankecil
         document.getElementById('order-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const idOrder = `CK-${Math.floor(1000 + Math.random() * 9000)}`;
             document.getElementById('modal-order-id').innerText = idOrder;
             document.getElementById('success-modal').classList.remove('hidden');
+            
             document.getElementById('btn-wa').onclick = function() {
-                window.open(`https://api.whatsapp.com/send?phone=6281214436783&text=Order%20${idOrder}`, '_blank');
+                const nama = document.getElementById('nama').value;
+                const waUrl = `https://api.whatsapp.com/send?phone=6281214436783&text=Halo%20Admin%20Coretankecil,%20saya%20${encodeURIComponent(nama)}%20ingin%20konfirmasi%20desain%20Pre-Order%20dengan%20ID:%20${idOrder}`;
+                window.open(waUrl, '_blank');
             };
+        });
+
+        // INISIALISASI AWAL JALAN
+        window.addEventListener('DOMContentLoaded', () => {
+            fetchDatabaseSimulation();
+            switchLang('id');
         });
     </script>
 </body>
